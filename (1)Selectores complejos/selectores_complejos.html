@@ -48,9 +48,10 @@
 		{
 			color: #442A5D;
 			font-family: Verdana, Geneva, sans-serif;
+			list-style-type: square;
 		}
 
-		li span{
+		span.negrita{
 			font-weight: bold;
 		}
 		li[id^="pregunta"] .negrita{
@@ -59,7 +60,6 @@
 
 		.comentarios{
 			font-style: italic;
-			list-style-type: square;
 			margin-left: 10%;
 			margin-right: 10%;
 			border: thin dotted #AC8159;
@@ -68,9 +68,13 @@
 		body p:last-of-type{ 
 			text-decoration: underline;
 		}
-		li > a{
+		li[id] > a{
 			color:#234E54;
 			background-color: #755E8B;
+		}
+
+		span.cursiva{
+			font-style: italic;
 		}
 
 		

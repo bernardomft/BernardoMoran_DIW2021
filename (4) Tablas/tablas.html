@@ -5,6 +5,36 @@
 	<title>Ejercicio formatear tabla</title>
 	<style>
 		/* Añadir estilos de tablas */
+		table{
+			width:85%;
+			height: 250px;
+		}
+		table,table *{
+			border: 1px solid #333;
+			border-collapse: collapse;
+		}
+		.cabecera, tbody tr{
+			text-align: center;
+		}
+
+		.cabecera{
+			background-image: url(imagenes/fondo_gris.gif);
+			background-position: top;
+			background-repeat: no-repeat; /* Arreglar para que la imagen salga por encima del titulo*/
+			background-size: initial;
+			background-origin: padding-box;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		tbody tr th{
+			background-color:#E6F3FF;
+		}
+		.euro{
+			background-image: url(imagenes/euro.png);
+			background-position: top left;
+			background-repeat: no-repeat;
+			background-size: initial;
+		}
 	</style>
 </head>
 <body>

@@ -12,6 +12,7 @@ ul.redes li {
 	font-style: italic;
 	/* Estilos de li para cumplir las especifiaciones */
 	color: #442A5D;
+	list-style-type: circle;
 }
 p.titulo {
 	font-family: Verdana, Geneva, sans-serif;
@@ -27,7 +28,12 @@ p.titulo {
 	height: 1.5em;
 	vertical-align: middle;
 }
-{ /* Hay que conseguir que este estilo se aplique al posicionarse sobre el elemento con contenido LMSGI */
+
+.titulo span{
+	font-weight: bold;
+}
+
+a:hover { /* Hay que conseguir que este estilo se aplique al posicionarse sobre el elemento con contenido LMSGI */
 	font-weight: bold;
 	color: #FFF;
 }

@@ -1,67 +1,79 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Ejercicio formatear tabla</title>
 	<style>
 		/* Añadir estilos de tablas */
-		table{
-			width:85%;
+		table {
+			width: 85%;
 			height: 250px;
 		}
-		table,table *{
+
+		table,
+		table * {
 			border: 1px solid #333;
 			border-collapse: collapse;
 		}
-		.cabecera, tbody tr{
+
+		.cabecera,
+		tbody tr {
 			text-align: center;
 		}
 
-		thead .cabecera{
-			background-image: url(imagenes/fondo_gris.gif);
-			font-family: Arial, Helvetica, sans-serif;
-			height:50px ;
+		tr {
+			vertical-align: bottom;
 		}
 
-		tbody tr th{
-			background-color:#E6F3FF;
+		thead .cabecera {
+			background-image: url(imagenes/fondo_gris.gif);
+			font-family: Arial, Helvetica, sans-serif;
+			height: 50px;
 		}
-		.euro{
+
+		tbody tr th {
+			background-color: #E6F3FF;
+		}
+
+		.euro {
 			background-image: url(imagenes/euro.png);
 			background-position: top left;
 			background-repeat: no-repeat;
 			background-size: initial;
 		}
 
-		.dolar{
+		.dolar {
 			background-image: url(imagenes/dolar.png);
 			background-position: top left;
 			background-repeat: no-repeat;
 			background-size: initial;
 		}
 
-		.libra{
+		.libra {
 			background-image: url(imagenes/libra.png);
 			background-position: top left;
 			background-repeat: no-repeat;
 			background-size: initial;
 		}
 
-		.yen{
+		.yen {
 			background-image: url(imagenes/yen.png);
 			background-position: top left;
 			background-repeat: no-repeat;
 			background-size: initial;
 		}
-		.par td{
+
+		.par td {
 			background-color: #FFFFCC;
 		}
 
-		tr:hover td{
-			background-color:  #FFFF66;
+		tr:hover td {
+			background-color: #FFFF66;
 		}
 	</style>
 </head>
+
 <body>
 	<table summary="Tipos de cambio">
 		<thead>
@@ -105,4 +117,5 @@
 		</tbody>
 	</table>
 </body>
+
 </html>

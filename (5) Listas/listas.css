@@ -12,7 +12,8 @@ ul.redes li {
 	font-style: italic;
 	/* Estilos de li para cumplir las especifiaciones */
 	color: #442A5D;
-	list-style-type: circle;
+	/*list-style-type: circle;*/
+	list-style-image: url(imgs/vineta_circle1.png);
 }
 p.titulo {
 	font-family: Verdana, Geneva, sans-serif;

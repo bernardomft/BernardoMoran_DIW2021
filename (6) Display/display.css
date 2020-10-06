@@ -1,0 +1,40 @@
+#negrita{
+    display: block;
+}
+
+.bloqueenlinea{
+    display: inline-block;
+}
+
+.enlinea{
+    display: inline;
+}
+
+.listas{
+    display: list-item;
+    list-style-position: outside;
+    margin-left: 10%;
+}
+
+.ocultar{
+    display: none;
+}
+
+.size{
+    height: 100px;
+    width: 200px;
+}
+
+.tabla{
+    display: table-cell;
+}
+ 
+.desplazamiento{
+    position: relative;
+    top:20px;
+    right: 20px;
+}
+
+.estatico{
+    position: fixed;
+}

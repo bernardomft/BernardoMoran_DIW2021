@@ -12,11 +12,12 @@ body{
     height: 200px;
     width: 200px;
     box-shadow: 0.5em 0.5em 0.7em;
+    overflow:  fixed;
 }
 
 .img{
     background-image: url("logo.png");
     height: 300px;
     width: 300px;
-    background-clip: cover;
+   
 }

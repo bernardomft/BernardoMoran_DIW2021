@@ -1,0 +1,22 @@
+
+body{
+    height: 100vh;
+    background-image: url("madrid.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+    vertical-align: top;
+    background-attachment: fixed;
+}
+
+.div_1{
+    height: 200px;
+    width: 200px;
+    box-shadow: 0.5em 0.5em 0.7em;
+}
+
+.img{
+    background-image: url("logo.png");
+    height: 300px;
+    width: 300px;
+    background-clip: cover;
+}

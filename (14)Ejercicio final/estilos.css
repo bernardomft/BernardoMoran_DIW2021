@@ -25,6 +25,6 @@
     background-color: blue;
 }
 
-div:nth-child(){
-    display: none;
+.ocultar{
+    visibility: hidden;
 }

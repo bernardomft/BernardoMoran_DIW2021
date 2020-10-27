@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 
+         flex</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        .contenedor1{
+            margin: 100px auto;
+            width: 95%;
+            display: flex;
+            flex-direction: row-reverse;
+            background-color: blue;
+            justify-content: space-around;
+            height: 300px;
+            align-content: center;
+            flex-wrap: wrap-reverse;
+            max-width: 500px;
+        }
+
+        .contenedor1 div{
+            background-color: #ADD8E6;
+            width:20%;
+            height: 6em;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            margin: 0.5em;
+        }
+
+        .contenedor2{
+            margin: 100px auto;
+            width: 95%;
+            display: flex;
+            flex-direction: row;
+            background-color: blue;
+            justify-content: space-between;
+            height: 300px;
+            align-content: center;
+            flex-wrap: wrap-reverse;
+            max-width: 500px;
+        }
+
+        .contenedor2 div{
+            background-color: #ADD8E6;
+            width:24%;
+            height: 6em;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            margin: 0.2em 0;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="contenedor1">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div class="caja5">5</div>
+    </div>
+
+    <div class="contenedor2">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div class="caja5">5</div>
+    </div>
+</body>
+</html>

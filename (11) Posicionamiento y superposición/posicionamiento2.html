@@ -5,6 +5,7 @@
 	<title>Posicionamiento</title>
 	<style type="text/css">
 		.tipo {
+			position: static;
 			font-family: Verdana, Geneva, sans-serif;
 			font-size: 24px;
 			color: #755E8B ;
@@ -12,27 +13,30 @@
 		/* Cada div define un estilo a nivel de id con el posicionamiento que le corresponde */
 		
 		#fija {
-			/* Rellenar con propiedades de posicionamiento y precedencia necesarias */
+			position: fixed;
+			bottom: 0;
+			right: 0;
 			width:7.7rem;
 			height:3.43rem;
 			background-color: #52797E;			
 		}
 		#estatica_exp{
-			/* Rellenar con propiedades de posicionamiento y precedencia necesarias */
+			position: static;
 			background-color: #123D43;
 			color: #F9F6C3;
 			width: 18.75rem;
 			margin: 0.6rem;
 		}
 		#estatica_imp{
-			/* Rellenar con propiedades de posicionamiento y precedencia necesarias */
+			position: static;
 			background-color: #6E431C;
 			color: #F9DDC3;
 			width: 18.75rem;
 			margin: 0.6rem;
 		}
 		#absoluta1{
-			/* Rellenar con propiedades de posicionamiento y precedencia necesarias */
+			position: absolute;
+			right: 0;
 			background-color: #123D43;
 			color: #F9DDC3;
 			height: 6rem;
@@ -40,7 +44,7 @@
 			width: 18.75rem;
 		}
 		#absoluta2{
-			/* Rellenar con propiedades de posicionamiento y precedencia necesarias */
+			position: absolute;
 			background-color: #755E8B; 
 			color: #CECA85; 
 			height: 3rem; 
@@ -48,7 +52,7 @@
 			margin: 0.6rem;			
 		}
 		#absoluta3{
-			/* Rellenar con propiedades de posicionamiento y precedencia necesarias */
+			position: absolute;
 			background-color: #6E431C; 			
 			color: #789498; 
 			height: 4.375rem; 
@@ -56,13 +60,17 @@
 			width: 18.75rem;			
 		}
 		#relativa{
-			 /* Rellenar con propiedades de posicionamiento y precedencia necesarias */
+			position: relative;
 			 width:18.75rem;
 			 background-color:#31174A;
 			 color:#F9F6C3;
+			 left: 40px;
+			 top: 100px;
+
 		} 
 		#sticky{
-			 /* Rellenar con propiedades de posicionamiento y precedencia necesarias */
+			position: sticky;
+			bottom: 0;
 			 width:18.75rem;
 			 background-color:#31174A;
 			 color:#F932C3;

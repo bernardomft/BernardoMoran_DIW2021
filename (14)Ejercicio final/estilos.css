@@ -1,0 +1,32 @@
+ .contenedor{
+    border: 1px solid #000000;
+    width: 95vw;
+    height: 95vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(
+     -50%, -50%); 
+     padding: 0.5em;
+ }
+
+ .contenedor div{
+    border: 1px solid #000000;
+    float: left;
+    width: calc(33% - 1em);
+    height:calc(33% - 1em);
+    margin:  0.5em;
+    
+ }
+
+ div:nth-child(n + 4){
+     background-color: green;
+ }
+
+ div:nth-child(n + 7){
+    background-color: blue;
+}
+
+.ocultar{
+    visibility: hidden;
+}

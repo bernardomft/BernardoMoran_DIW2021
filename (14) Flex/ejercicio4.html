@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 
+         flex</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+
+        .estiloscontenedor{
+            margin: 100px auto;
+            width: 95%;
+            max-width: 500px;
+            height: 4em;
+            background-color: grey;
+        }
+
+        .estilosDiv{
+            background-color: orange;
+            width:17%;
+            height: 1.5em;
+            color: #FFFFFF;
+            margin: 0;
+        }
+
+        .contenedor1{
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+        }
+
+        #div3{
+            align-self: flex-start;
+        }
+
+        .contenedor2{
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            max-width: 500px;
+        }
+
+        .contenedor1 div, .contenedor2 div, .contenedor3 div{
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        #div3_2{
+            align-self: center;
+        }
+
+        .contenedor3{
+            display: flex;
+            flex-grow: 1;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            align-items: baseline;
+            max-width: 500px;
+        }
+
+        .contenedor3 div{
+            
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="contenedor1 estiloscontenedor">
+        <div class="estilosDiv">1</div>
+        <div class="estilosDiv">2</div>
+        <div class="estilosDiv" id="div3">3</div>
+        <div class="estilosDiv">4</div>
+        <div class="estilosDiv">5</div>
+    </div>
+
+    <div class="contenedor2 estiloscontenedor">
+        <div class="estilosDiv">1</div>
+        <div class="estilosDiv">2</div>
+        <div class="estilosDiv" id="div3_2">3</div>
+        <div class="estilosDiv">4</div>
+        <div class="estilosDiv">5</div>
+    </div>
+
+    <div class="contenedor3 estiloscontenedor">
+        <div class="estilosDiv">1</div>
+        <div class="estilosDiv">2</div>
+        <div class="estilosDiv" id="">3</div>
+        <div class="estilosDiv">4</div>
+        <div class="estilosDiv">5</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio5</title>
+    <style>
+        .contenedor{
+            margin: 50px auto;
+            width: 90%;
+            height: 5em;
+            background-color: grey;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0.5em;
+        }
+
+        .contenedor div{
+            background-color: coral;
+            border: 0.5px solid #000000;
+            flex-wrap: wrap;
+            max-height: 2em;
+        }
+
+       #primero 
+        {
+            flex-basis: 10%;
+            flex-grow: 0;
+            order: 4;
+        }
+
+        #segundo 
+        {
+            flex-basis: 15%;
+            flex-grow: 0;
+            order: 1;
+        }
+
+        #tercero 
+        {
+            flex-basis: 15%;
+            flex-grow: 2;
+            order: 2;
+        }
+
+        #cuarto 
+        {
+            flex-basis: 10%;
+            flex-grow: 2;
+            order: 3;
+        }
+
+        #priemro2{
+            flex-basis: 15%;
+            flex-grow: 0;
+        }
+        #segundo2{
+            flex-basis: 15%;
+            flex-grow: 2;
+        }
+        #tercero2{
+            flex-basis: 15%;
+            flex-grow: 0;
+        }
+        .contenedor2{
+            background-color: darkcyan;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div id="primero">Primero</div>
+        <div id="segundo">Segundo</div>
+        <div id="tercero">Tercero</div>
+        <div id="cuarto">Cuarto</div>
+    </div>
+
+    <div class="contenedor contenedor2">
+        <div id="primero2">Primero</div>
+        <div id="segundo2">Segundo</div>
+        <div id="tercero2">Tercero</div>
+    </div>
+</body>
+</html>

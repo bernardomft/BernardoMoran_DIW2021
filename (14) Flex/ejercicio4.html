@@ -9,11 +9,12 @@
     <style>
 
         .estiloscontenedor{
-            margin: 100px auto;
+            margin: 0px auto;
             width: 95%;
             max-width: 500px;
             height: 4em;
             background-color: grey;
+            border: 2px solid cyan;
         }
 
         .estilosDiv{
@@ -58,13 +59,29 @@
             flex-grow: 1;
             flex-flow: row wrap;
             justify-content: space-around;
-            align-items: baseline;
+            align-items: center;
             max-width: 500px;
         }
 
-        .contenedor3 div{
-            
-        }
+       #primero{
+           height: 2em;
+       }
+
+       #segundo{
+           height: 1.7em;
+       }
+
+       #tercero{
+           height: 2.2em;
+       }
+
+       #cuarto{
+           height: 2.5em;
+       }
+
+       #quinto{
+           height: 1.1em;
+       }
 
 
 
@@ -89,11 +106,11 @@
     </div>
 
     <div class="contenedor3 estiloscontenedor">
-        <div class="estilosDiv">1</div>
-        <div class="estilosDiv">2</div>
-        <div class="estilosDiv" id="">3</div>
-        <div class="estilosDiv">4</div>
-        <div class="estilosDiv">5</div>
+        <div class="estilosDiv" id="primero">1</div>
+        <div class="estilosDiv" id="segundo">2</div>
+        <div class="estilosDiv" id="tercero">3</div>
+        <div class="estilosDiv" id="cuarto">4</div>
+        <div class="estilosDiv" id="quinto">5</div>
     </div>
 </body>
 </html>

@@ -1,0 +1,56 @@
+.contenedor{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.contenedor header{
+    width: 100%;
+    height: 5em;
+    background-color: darkblue;
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav, h1{
+    margin: 0 0.5em;
+}
+h1{
+    color: #FFFFFF;
+    font-size: 2em;
+    
+}
+
+nav{
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: orangered;
+    padding: 0.5em;
+}
+
+main{
+    flex-basis: 53%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+h3{
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+aside{
+    background-color: orangered;
+}

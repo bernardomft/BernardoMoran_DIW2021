@@ -1,0 +1,50 @@
+.contenedor{
+    width: 100%;
+    margin: 0 auto;
+    border-top: 0.5px solid #06e649;
+}
+
+header{
+    height: 4em;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-grow: 2;
+}
+
+header *{
+    display: flex;
+    
+    align-items: center;
+}
+nav{
+   
+    flex-basis: 30%;
+}
+
+nav a{
+    text-decoration: none;
+    color: #000000;
+    height: 100%;
+    justify-content: space-between;
+    padding: 0.2em;
+}
+
+nav a:hover{
+     background-color: #06e649;
+     color: #FFFFFF;
+}
+
+/*.divImagen{
+    background-image: url('PlanillaFinal\img\whatsapp.svg');
+    background-repeat: no-repeat;
+    background-position:center center;
+}*/
+
+.presentacion{
+    background-image: url('img/42.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 30em;
+}

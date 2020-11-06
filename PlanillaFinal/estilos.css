@@ -135,8 +135,16 @@ h2{
 
 form{
     margin-top: 4em;
+   
 }
+
+
 form input, form button{
     display: block;
     margin: 0.9em auto;
+    appearance: none;
+}
+
+form input[type=text]{
+    appearance: field;
 }

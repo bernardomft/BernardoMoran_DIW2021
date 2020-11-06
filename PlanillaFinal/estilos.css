@@ -71,13 +71,16 @@ nav a:hover{
 }
 
 .tarjeta h3{
-    font-size: 2.0em;
     padding: 0.5em;
     color: #FFFFFF;
     background-color: purple;
     display: inline-block;
     border-radius: 50%;
 }
+h3{
+    font-size: 2.0em;
+}
+
 
 .tarjeta h4{
     font-size: 1.8em;
@@ -87,5 +90,53 @@ nav a:hover{
 
 .tarjeta p{
     line-height: 1.4em;
-    font-weight: lighter;
+}
+
+.contenedor-form{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3em;
+}
+
+.contenedor-form > div{
+    margin: 1em;
+    padding: 3em;
+}
+
+h2{
+    font-size: 2.2em;
+    
+}
+
+.info-empresa{
+    flex-basis: 40%;
+}
+.info-empresa h2{
+    margin-bottom: 1em;
+}
+
+.texto p{
+    font-size: 1.2em;
+}
+
+.formulario{
+    flex-basis: 40%;
+    background-color: #000000;
+    border-radius:50% ;
+}
+.formulario h3{
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 1em;
+    padding: 0.2em;
+}
+
+form{
+    margin-top: 4em;
+}
+form input, form button{
+    display: block;
+    margin: 0.9em auto;
 }

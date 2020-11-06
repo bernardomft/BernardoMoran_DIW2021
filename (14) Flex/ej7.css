@@ -60,8 +60,33 @@ hr{
 aside{
     flex-basis: 30%;
     background-color: orangered;
+    display: flex;
+    flex-direction: column;
 }
 
+.contendor-aside{
+    background-color: orange;
+    padding: 0.5em;
+    margin: 0.5em;
+    flex-basis: calc(50% - 0.5em);
+    display: flex;
+    flex-direction: column;
+}
+
+.contendor-aside2{
+    
+    flex-direction: column-reverse;
+}
+
+.imgFlex{
+    flex-basis: 50%;
+    width: 50%;
+    background-color: brown;
+}
+
+.imgFlex2{
+    align-self: flex-end;
+}
 footer{
     flex-basis: 100%;
     background-color: darkblue;

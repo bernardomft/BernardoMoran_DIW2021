@@ -1,64 +1,87 @@
+body{
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    line-height: 1.7em;
+    font-size: 12px;
+}
+
 .contenedor{
     width: 100%;
     margin: 0 auto;
-    border-top: 0.5px solid #06e649;
+    border-top: 5px solid #29ca8e;
 }
 
 header{
-    height: 4em;
+    height: 75px;
+    max-height: 340px;
     display: flex;
     justify-content: space-around;
     align-items: stretch;
-    flex-grow: 2;
+    
 }
 
 header *{
     display: flex;
-    
     align-items: center;
 }
+
+#titulo{
+    font-weight: bold;
+    color: #454545;
+    font: 18px Nunito, sans-serif;
+    margin-left: 10%;
+}
 nav{
-   
-    flex-basis: 30%;
+    flex-basis: 60%;
 }
 
+nav a, header div p{
+    color: #575757;
+    line-height: 40px;
+    font-size: 14px;
+}
 nav a{
+    flex-basis: 100px;
     text-decoration: none;
-    color: #000000;
     height: 100%;
-    justify-content: space-between;
-    padding: 0.2em;
+    justify-content: center;
+    margin:auto 0em;
 }
 
-nav a:hover{
-     background-color: #06e649;
+nav a:hover, header div:hover{
+     background-color: #29ca8e;
      color: #FFFFFF;
 }
 
-/*.divImagen{
-    background-image: url('PlanillaFinal\img\whatsapp.svg');
+.divImagen{
+    background-image: url('../PlanillaFinal/img/whatsapp.svg');
+    width: 20px;
+    height: 100px;
     background-repeat: no-repeat;
     background-position:center center;
-}*/
+    margin-right: 0.9em;
+}
 
 .presentacion{
-    background-image: url('img/42.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 30em;
+    background: url(img/slider-image1.jpg) no-repeat center center ;
+        background-size: cover;
+        width: 100%;
+        height: 30em;
+   
 }
 
 /*Parte de kas tarjetas*/
 
 .contenedor-tarjetas{
-    width: 70%;
+    width: 80%;
     margin: 6em auto;
+    padding: 15px;
 }
 
 .contenedor-tarjetas-flex{
+    padding: 5em 3em;
     display: flex;
     justify-content: space-between;
+    flex-basis: 33.3333%;
 }
 
 .tarjeta{
@@ -66,16 +89,22 @@ nav a:hover{
     flex-grow: 1;
     margin: 1em;
     padding: 3em;
-    /*border:1px solid #000000;*/
+    border:1px solid #f0f0f0;
     /*rettocar borde para que sea igual*/
 }
 
 .tarjeta h3{
-    padding: 0.5em;
+    
+    font-size: 25px;
     color: #FFFFFF;
-    background-color: purple;
+    background-color: #3f51b5;
     display: inline-block;
-    border-radius: 50%;
+    border-radius: 50px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    margin-bottom: 5px;
 }
 h3{
     font-size: 2.0em;
@@ -84,12 +113,16 @@ h3{
 
 .tarjeta h4{
     font-size: 1.8em;
-    margin: 0.6em 0;
+    margin: 10px 0;
+    
     
 }
 
 .tarjeta p{
-    line-height: 1.4em;
+    color: #757575;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 24px;
 }
 
 .contenedor-form{
@@ -106,8 +139,11 @@ h3{
 }
 
 h2{
-    font-size: 2.2em;
-    
+    color: #353535;
+    font-size: 2em;
+    padding-bottom: 10px;
+    line-height: 1.5em;
+    font-weight: bold;
 }
 
 .info-empresa{
@@ -117,8 +153,48 @@ h2{
     margin-bottom: 1em;
 }
 
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.2em 0;
+}
+.info .icono{
+    min-width: 40px;
+    height: 40px;
+    background-color: #29ca8e;
+    border-radius: 40px;
+    background-repeat: no-repeat;
+    background-position:center center;
+}
+
+#icono1{
+    background-image: url('../PlanillaFinal/img/personas.svg');
+}
+
+#icono2{
+    background-image: url('../PlanillaFinal/img/asterisk_icon-icons.com_58939.svg');
+}
+
+#icono3{
+    background-image: url('../PlanillaFinal/img/round-bars-graph_icon-icons.com_55558.svg');
+}
+
+.texto{
+    margin-left: 1.5em;
+}
+
+.texto h3{
+    font-family: 'Muli', sans-serif;
+    font-size: 21px;
+    color:#454545;
+    font-weight: bold;
+    line-height: 24px;
+}
 .texto p{
     font-size: 1.2em;
+    margin: 1em 0;
+    
 }
 
 .formulario{

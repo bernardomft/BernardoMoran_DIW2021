@@ -27,7 +27,7 @@ header *{
 #titulo{
     font-weight: bold;
     color: #454545;
-    font: 18px Nunito, sans-serif;
+    font: 18px 'Nunito', sans-serif;
     margin-left: 10%;
 }
 nav{
@@ -68,6 +68,41 @@ nav a:hover, header div:hover{
         height: 30em;
    
 }
+
+.texto-presentacion{
+    position: absolute;
+    top:20%;
+    left: 12.5%;
+    width: 40%;
+    color: #FFFFFF;
+    font-family: 'Muli', sans-serif;
+}
+
+.texto-presentacion h1{
+    font-size: 42px;
+    margin:0.7em auto;
+}
+
+.texto-presentacion p{
+    font-size: 1.2em;
+    
+    font-weight: 300;
+    color: #f9f9f9;
+}
+
+.texto-presentacion a{
+    width: 30%;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    margin: 2.5em 0;
+    padding: 0.5em 1em;
+    color: #FFFFFF;
+    font-size: 1.1em;
+    border: 1px solid #FFFFFF;
+    border-radius: 30%;
+}
+
 
 /*Parte de kas tarjetas*/
 
@@ -137,7 +172,7 @@ h3{
 
 h2{
     color: #353535;
-    font-size: 2em;
+    font-size: 2.33333em;
     padding-bottom: 10px;
     line-height: 1.5em;
     font-weight: bold;
@@ -148,6 +183,7 @@ h2{
 }
 .info-empresa h2{
     margin-bottom: 1em;
+    font-family: 'Muli', sans-serif;
 }
 
 .info{

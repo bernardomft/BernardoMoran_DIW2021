@@ -6,6 +6,8 @@
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
+    box-shadow: 5px 5px 10px blue;
+    margin-bottom: 2em;
 }
 
 .contenedor1, .contenedor2{

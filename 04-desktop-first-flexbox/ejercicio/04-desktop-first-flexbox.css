@@ -4,6 +4,12 @@ body{
 }
 
 div.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
   margin: 0 auto;	
   font-size: 16px;
   max-width: 1024px;  
@@ -26,16 +32,15 @@ div.container article {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  float: left;
 }
 
 div.container aside {
+  align-self: baseline;
   width: 30%;
   background-color: red;
   padding: 1em;
   font-size: 1em;
   box-sizing: border-box;
-  float: left;
 }
 
 @media all and (max-width:768px){
@@ -50,12 +55,10 @@ div.container aside {
     width: 100%;
     height: 12rem;
     background-image: url(img/content-is-like-water-1.jpg);
-    clear: left;
   }
   div.container aside {
     width: 100%;
     padding: 0em 1em 1em 1em;
-    clear: left;
   }
 }
 

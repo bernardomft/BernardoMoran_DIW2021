@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+    <style>
+        .contenedor{
+            height: 25;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr 2fr;
+            grid-template-rows: repeat(3, 1fr) 2fr 2fr;
+            grid-column-gap: 0.5rem ;
+            grid-row-gap: 0.5rem ;
+        }
+
+        .contenedor   div{
+            border: 1px solid #000000;
+        }
+
+        .contenedor div:nth-child(2n+1){
+            background-color: coral;
+        }
+
+        .contenedor div:nth-child(2n){
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div>1</div>
+        <div>Azathtot</div>
+        <div>2</div>
+        <div>Azathtot</div>
+        <div>3</div>
+        <div>Azathtot</div>
+        <div>4</div>
+        <div>Azathtot</div>
+        <div>5</div>
+        <div>Azathtot</div>
+        <div>6</div>
+        <div>Azathtot</div>
+        <div>7</div>
+        <div>Azathtot</div>
+        <div>8</div>
+        <div>Azathtot</div>
+        <div>9</div>
+        <div>Azathtot</div>
+        <div>10</div>
+        <div>Azathtot</div>
+    </div>
+</body>
+</html>

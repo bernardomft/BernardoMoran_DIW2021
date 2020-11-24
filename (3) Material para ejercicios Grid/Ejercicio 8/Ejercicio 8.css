@@ -12,10 +12,11 @@
 	height: 24rem;
 	border: 2px solid #CCC;
 	display: grid;
-	grid-gap: 0.5em;
+	grid-gap: 5.9rem;
 	grid-template-columns: repeat(3, 6rem);
 	grid-template-rows: repeat(2, 6rem);	
 	margin: 2.5rem;
+	align-content: center;
 }
 
 .box {
@@ -24,4 +25,8 @@
 	border-radius: 5px;
 	padding: 1em;
 	font-size: 150%;  
+}
+
+.item1{
+
 }

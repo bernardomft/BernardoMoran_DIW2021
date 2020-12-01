@@ -23,3 +23,27 @@ div {
     padding: 0.5em;
     margin: 0.5em;
 }
+
+@media all and (min-width:768px){
+    .row{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        color:blue;
+    }
+}
+
+@media all and (min-width:1024px){
+    .row{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        color:green;
+    }
+}
+
+@media all and (min-width:1200px){
+    .row{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        color: red;
+    }
+}

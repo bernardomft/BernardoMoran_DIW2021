@@ -1,0 +1,145 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+body{
+    font-size: 32px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+
+/*HEADER*/
+
+header.header{
+    width: 100%;
+    height: 15.75em;
+    background-color:#665442 ;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+h1.h1{
+    font-size: 1.525em;
+    padding: 0.5em 0.1em 0.25em 0.1em;
+}
+
+nav.navegacion a {
+    display: block;
+    font-size: 0.8125em;
+    margin: 0.75em auto;
+    padding: 0.25em;
+    width: 85%;
+    border-bottom: 1px solid #FFF9F9;
+}
+
+nav.navegacion a:first-child {
+    text-decoration: underline;}
+
+div > a{
+    font-size: 0.475em;
+}
+
+/*Menu desplegable*/
+/* https://programadorwebvalencia.com/Menu-desplegable-en-html5-y-css3/ */
+
+/*ARTICLE*/
+article.article{
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)),url("../img/img1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+article.article h3.h3{
+     font-size: 1.2em;
+     color: #A46F39;
+     font-weight: bold;
+     font-family: 'Open Sans', sans-serif;
+     padding: 0.4em;
+}
+
+article.article p, div.news p {
+    font-size: 0.825em;
+    padding: 0.8em;
+    font-weight: 600;
+    font-style:italic;
+}
+
+/*CURSOS*/
+
+main.cursos{
+    width: 100%;
+}
+
+h2.h2{
+    font-size: 1.25em;
+    padding: 0.8em;
+    text-align: center;
+    font-weight: bold;
+}
+
+div.tarjeta-curso{
+    margin: 0 auto;
+    width: 92%;
+    background-color: #DBD9D9;
+    text-align: center;
+}
+div.tarjeta-curso *{
+    margin-top: 0.7em;
+}
+
+div.tarjeta-curso h4.h4{
+    padding: 0.5em 0.1em;
+    font-size: 1.15em;
+}
+
+div.tarjeta-curso img{
+    width: 90%;
+}
+
+div.tarjeta-curso p{
+    font-size: 0.78em;
+    width: 90%;
+    text-align: center;
+    margin: 0.5em auto auto auto;
+    line-height: 1.5em;
+}
+
+a.boton-curso{
+    display: inline-block;
+    font-size: 0.99em;
+    margin: 0.7em auto;
+    width: 85%;
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: #9B9191;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+
+/*NEWSLETTER*/
+
+div.news p{
+    font-weight: 400;
+    text-align: center;
+}
+
+form.form-news{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 0.9em;
+}
+form.form-news *{
+    
+}
+form.form-news input{
+    width: 55%;
+    background-color: #E1DADA;
+    border: none;
+}
+
+#suscribe{
+    width: 100%;
+}

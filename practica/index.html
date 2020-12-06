@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="grid-tablet">
     <header class="header">
         <h1 class="h1">TusCursos.com</h1>
         <nav class="navegacion">
@@ -17,11 +17,39 @@
             <a>Únete</a>
             <a>Contacta</a>
         </nav>
-        <div>
+        <div id="provisional">
             <p>Cursos Ofertados ></p>
             <a>Log In</a>
         </div>
     </header>
+    <aside class="aside">
+        <h5 class="h5">Cursos ofertados</h5>
+        <ul>
+            <li>Lenguajes
+                <ul>
+                    <li>JAVA</li>
+                    <li>C++/C#</li>
+                    <li>Python</li>
+                </ul>
+            </li>
+            <li>Front-End
+                <ul>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JAVASCRIPT</li>
+                    <li>BootStrap4</li>
+                </ul>
+            </li>
+            <li>Back-End
+                <ul>
+                    <li>PHP5</li>
+                    <li>Symphony</li>
+                    <li>Laravel</li>
+                    <li>Node.js</li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
     <article class="article">
         <h3 class="h3">En poco tiempo serás un gran profesional</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis est nisi. Etiam condimentum tortor eget odio consectetur tristique. Curabitur erat lorem, cursus in molestie vitae,</p>
@@ -53,8 +81,34 @@
         <form class="form-news"action="#">
             <label for="email">e-mail:</label>
             <input type="email" name="email" id="mail-news">
-            <input type="submit" name="email" id="suscribe" value="Suscríbete">
         </form>
+        <div class="boton">SUSCRÍBETE</div>
     </div>
+    <div class="contacto">
+        <h2 class="h2">Contácta con nuestro equipo</h2>
+        <div class="campo-contacto">
+            <label for="nombre">Nombre:</label>
+            <input type="nombre" name="nombre" id="nombre">
+        </div>
+        <div class="campo-contacto">
+            <label for="Telefono">Telefono:</label>
+            <input type="Telefono" name="Telefono" id="Telefono">
+        </div>
+        <div class="campo-contacto">
+            <label for="cuentanos">Cuéntanos:</label>
+            <textarea type="cuentanos" name="cuentanos" id="cuentanos"></textarea>
+        </div>
+        <div class="boton">CONTÁCTANOS</div>
+    </div>
+    <footer class="footer">
+        <h1 class="h1">TusCursos.com</h1>
+        <nav class="navegacion">
+            <a>Home</a>
+            <a>Sobre Nosotros</a>
+            <a>Certificaciones</a>
+            <a>Únete</a>
+            <a>Contacta</a>
+        </nav>
+    </footer>
 </body>
 </html>

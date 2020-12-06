@@ -11,7 +11,7 @@ body{
 
 /*HEADER*/
 
-header.header{
+header.header, footer.footer{
     width: 100%;
     height: 15.75em;
     background-color:#665442 ;
@@ -125,7 +125,7 @@ div.news p{
     text-align: center;
 }
 
-form.form-news{
+form.form-news, div.campo-contacto{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -134,7 +134,9 @@ form.form-news{
 form.form-news *{
     
 }
-form.form-news input{
+form.form-news input, 
+div.campo-contacto input,  
+div.campo-contacto textarea{
     width: 55%;
     background-color: #E1DADA;
     border: none;
@@ -142,4 +144,92 @@ form.form-news input{
 
 #suscribe{
     width: 100%;
+}
+
+div.boton{
+    font-size: 0.99em;
+    color: #FFFFFF;
+    background-color: #A68973;
+    text-align: center;
+    padding:0.5em 0em 0.5em 0em;
+    margin-top: 1em;
+}
+
+/*CONTACTO*/
+
+div.contacto > div{
+    margin-top: 0.5em;
+}
+
+div.campo-contacto textarea,
+div.campo-contacto input{
+    width: 40%;
+}
+
+/*PANTALLAS TAMAÑO TABLET*/
+@media all and (min-width:768px){
+    body.grid-tablet{
+        width: 100vw;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        /*grid-template-rows: auto;*/
+        grid-template-areas:"header header header"
+                            "aside article article"
+                            "cursos cursos cursos"
+                            "news news news"
+                            "contacto contacto"
+                            "footer footer";
+    }
+
+    #provisional{
+        display: none;
+    }
+
+    header.header{
+        grid-area: header;
+        display: flex;
+        height: 10vh;
+        width: 100%;
+    }
+
+    h1.h1{
+        font-size: 1.38em;
+    }
+
+    nav.navegacion a {
+        display: flex;
+        font-size: 0.68em;
+        margin: 0.75em auto;
+        padding: 0.25em;
+        width: 85%;
+        border-bottom:none;
+    }
+
+    header.header nav.navegacion{
+        display: flex;
+    }
+
+    aside.aside{
+        grid-area: aside;
+    }
+
+    article.article{
+        grid-area: article;
+    }
+
+    main.cursos{
+        grid-area: cursos;
+    }
+
+    div.news{
+        grid-area: news;
+    }
+
+    div.contacto{
+        grid-area: contacto;
+    }
+
+    footer.footer{
+        grid-area: footer;
+    }
 }

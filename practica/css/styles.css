@@ -235,6 +235,10 @@ div.info-empresa div.img-rrss{
     background-size: contain;
 }
 
+#h1-2{
+    display: none;
+}
+
 
 /*PANTALLAS TAMAÑO TABLET*/
 @media all and (min-width:768px) {
@@ -338,8 +342,9 @@ div.info-empresa div.img-rrss{
     }
     /*BARRA GRIS*/
     div.barra-gris{
-        width: 95%;
+        width: 90%;
         height: 2px;
+        margin: 0.5em auto;
         background-color: #737373;
     }
 
@@ -368,5 +373,78 @@ div.info-empresa div.img-rrss{
         justify-content: space-between;
     }
 
-    footer.footer {}
+    footer.footer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: flex-star;
+    }
+    footer.footer h1.h1{
+        display: none;
+    }
+    #h1-2{
+        display: block;
+        font-size: 1.3875em;
+    }
+    div.footer-nav, nav.navegacion{
+        margin-top: 1.2em;
+    }
+
+    footer.footer nav.navegacion a{
+        font-size: 0.8125em;
+    }
+
+    footer.footer h5, footer.footer ul {
+        font-size: 0.8125em;
+        margin: 0.9em auto;
+    }
+    footer.footer li{
+        margin: 0.5em auto;
+    }
+    div.barra-blanca{
+        width: 90%;
+        height: 1px;
+        background-color: #FFF9F9;
+        margin: 0.5em auto;
+    }
+    div.info-empresa{
+        margin-top:0.5em;
+    }
+    
+    div.info-empresa p {
+        display: block;
+        font-size: 0.8125em;
+        margin: 0.50em auto;
+        padding: 0.25em;
+        width: 85%;
+    }
+
+    div.img-container{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+    
+    div.info-empresa div.img-rrss{
+        margin: 1.2em auto;
+        height:120px;
+        width: 120px;
+    }
+    
+    #img-facebook{
+        background-image: url('../img/facebook.png');
+        background-size: contain;
+    }
+    
+    #img-twitter{
+        background-image: url('../img/twitterlogodown.png');
+        background-size: contain;
+    }
+    
+    #img-instagram{
+        background-image: url('../img/instagram.png');
+        background-size: contain;
+    }
+    
 }

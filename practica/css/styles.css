@@ -289,6 +289,7 @@ div.info-empresa div.img-rrss{
         font-size:0.6em;
         background-color: #C2A78C;
         text-align: center;
+        color: #FFFFFF;
     }
 
     aside.aside h5.h5{
@@ -447,4 +448,97 @@ div.info-empresa div.img-rrss{
         background-size: contain;
     }
     
+}
+
+@media all and (min-width:1200px){
+
+    
+    header.header{
+        height: 4em;
+        display: block;
+    }
+    header.header h1.h1{
+        padding: 0.5em;
+    }
+
+    header.header nav.navegacion{
+        margin-top: 0;
+    }
+
+    header.header nav.navegacion{
+        font-size: 1.06em;
+    }
+
+    aside.aside{
+        height: 1450px;
+        width: 15%;
+        float: left;
+    }
+    article.article{
+        width: 85%;
+        height: 450px;
+        float: left;
+    }
+
+    article.article h3.h3{
+        font-size: 2.88em;
+    }
+
+    article.article p{
+        font-size: 0.55em;
+        text-align: center;
+    }
+
+    main.cursos{
+        width:85%;
+        height: 1000px;
+        float: left;
+        justify-content: space-between;
+    }
+
+    main.cursos h2.h2{
+        margin-bottom: 0;
+    }
+
+    main.cursos div.tarjeta-curso{
+        width: 20%;
+    }
+
+    div.tarjeta-curso{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    
+    div.news{
+        clear: left;
+    }
+    div.news, div.contacto{
+        float: left;
+        width:calc(50% - 1em - 1px);
+        height: 15em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        margin: 1.5em 0.5em;
+
+    }
+    div.news div.boton, div.contacto div.boton{
+        width: 85%;
+    } 
+   
+
+   div.contacto{
+        border-left: 1px solid  #737373 ;
+    }
+
+    .curso4, .barra-gris, .barra-blanca{
+        display: none!important;
+    }
+    footer.footer{
+        height: 25em;
+    }
 }

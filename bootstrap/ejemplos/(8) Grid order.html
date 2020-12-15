@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <!-- Bootstrap -->
+  <link href="bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/grid.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container-fluid">
+  <h1>Order incorrecto</h1>
+  <div class="row">
+	<div class="col">First, but unordered</div>
+	<div class="col order-12">Second, but last</div>
+	<div class="col order-1" style="background-color:red">Third, but first</div> <!-- ¡¡CUIDADO!! -->
+  </div>
+
+  <h1>Order correcto</h1> 
+  <div class="row">
+	<div class="col">First, but unordered</div>
+	<div class="col order-12">Second, but last</div>
+	<div class="col order-first" style="background-color:green">Third, but first</div> <!-- En este caso si funciona
+	 porque order-first es en realidad el valor -1 y como el valor de order por defecto si no se pone nada es 0, 
+	 entonces la columna con order-first aparecería primero-->
+  </div>	
+
+  <h1>Order correcto</h1>
+  <div class="row">
+	<div class="col order-2">First, but unordered</div> <!-- Añadimos el orden de esta columna -->
+	<div class="col order-12">Second, but last</div>
+	<div class="col order-1" style="background-color:green">Third, but first</div>
+  </div>
+</div>
+
+</body>
+</html>

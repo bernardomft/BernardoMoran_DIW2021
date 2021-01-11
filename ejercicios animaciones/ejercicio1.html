@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1</title>
+    <script>
+        //generar elementos 
+        var arrayColors = ['yellow', 'purple', 'brown', 'green'];
+        var arrayTexto = ['primero', 'segundo', 'tercero', 'cuarto'];
+        var arrayTimeout = [];
+        function iniciar(){
+            for( var i = 0; i < arrayColors.length; i++){
+                arrayTimeout[i] = setTimeout(crearElemento, (1000 + i * 1000),arrayColors[i], arrayTexto[i]);
+            }
+        }
+
+        function crearElemento(color, texto){
+            var ele = document.createElement('div');
+            ele.id = texto;
+            ele.style.width = '85%';
+            ele.style.backgroundColor = color;
+            ele.style.margin = '4em auto';
+            ele.innerHTML = texto;
+            document.body.appendChild(ele);
+        }
+
+        window.onload = iniciar;
+    </script>
+</head>
+<body>
+    <h1>Pincha en cualquiera de los textos</h1>
+</body>
+</html>

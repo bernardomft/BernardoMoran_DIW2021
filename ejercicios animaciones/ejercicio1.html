@@ -29,6 +29,8 @@
         }
 
         function borrar(){
+            for(var i = 0; i < arrayTimeout.length;i++)
+                clearTimeout(arrayTimeout[i]);
             for(var i = 0; i < arrayDivs.length; i++){
                 document.body.removeChild(arrayDivs[i]);
             }

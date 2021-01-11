@@ -9,6 +9,7 @@
         var arrayColors = ['yellow', 'purple', 'brown', 'green'];
         var arrayTexto = ['primero', 'segundo', 'tercero', 'cuarto'];
         var arrayTimeout = [];
+        var arrayDivs = [];
         function iniciar(){
             for( var i = 0; i < arrayColors.length; i++){
                 arrayTimeout[i] = setTimeout(crearElemento, (1000 + i * 1000),arrayColors[i], arrayTexto[i]);
@@ -22,7 +23,18 @@
             ele.style.backgroundColor = color;
             ele.style.margin = '4em auto';
             ele.innerHTML = texto;
+            ele.addEventListener('click', borrar);
+            arrayDivs.push(ele);
             document.body.appendChild(ele);
+        }
+
+        function borrar(){
+            for(var i = 0; i < arrayDivs.length; i++){
+                document.body.removeChild(arrayDivs[i]);
+            }
+            arrayDivs = [];
+            arrayTimeout = [];
+            iniciar();
         }
 
         window.onload = iniciar;

@@ -11,65 +11,67 @@
             margin: 1em;
         }
 
-        .cajaSlideDown{
+        .cajaSlideUp{
             display: block;
             visibility: visible;
             background-color:red;
         }
 
-        .cajaFadeOut{
-            display: block;
-            visibility: visible;
+        .cajaSlideDown{
+            display: none;
+            visibility: hidden;
             background-color:green;
         }
     </style>
 
     <script>
 
+        var intervalSlideUp;
         var intervalSlideDown;
-        var intervalFadeOut;
-        function iniciarSlideDown(){
-            slideDown(document.getElementById('caja1'),3000);
+        function iniciarSlideUp(){
+            slideUp(document.getElementById('caja1'),1000);
         }
 
-        function slideDown(element, duration){
+        function slideUp(element, duration){
             console.log(element.style);
             var step = element.clientHeight;
-            //console.log(step);
-            intervalSlideDown = setInterval(lessHeight,duration/20,element.id, parseFloat(step)/20);
+            intervalSlideUp = setInterval(lessHeight,duration/100,element.id, parseFloat(step)/100);
         }
 
         function lessHeight(id, step){
             var n = parseFloat(document.getElementById(id).clientHeight);
-            console.log(n);
             n = n - step;
-            console.log(n);
             document.getElementById(id).style.height = n.toString() + 'px';
             if(n <= 0){
                 document.getElementById(id).style.height = '0px';
-                clearInterval(intervalSlideDown);
+                clearInterval(intervalSlideUp);
             }      
         }
 
-        function iniciarFadeOut(){
-            fadeOut(document.getElementById('caja2'),3000);
+        function iniciarSlideDown(){
+            slideDown(document.getElementById('caja2'),1000);
         }
 
-        function fadeOut(element, duration){
-            element.style.opacity = '1';
-            intervalFadeIn = setInterval(lessOpacity,duration/20,element.id);
+        function slideDown(element, duration){
+            var h = (window.getComputedStyle(element));
+            h = h.height.slice(0,-2);
+            element.style.display = 'block';
+            element.style.visibility = 'visible';
+            element.style.height = '0px';
+            intervalSlideDown = setInterval(moreHeight,duration/100,element.id, parseFloat(h)/100, h);
         }
-        function lessOpacity(id){
-            var n = parseFloat(document.getElementById(id).style.opacity);
+
+        function moreHeight(id, step, max){
+            var n = parseFloat(document.getElementById(id).style.height.slice(0,-2));
+            n = n + step;
+            
+            
             console.log(n);
-            n = n - 0.05;
-            console.log(n);
-            document.getElementById(id).style.opacity = n.toString();
-            if(n === 0.0){
-                document.getElementById(id).style.display = 'none';
-                document.getElementById(id).style.display = 'hidden';
-                clearInterval(intervalFadeIn);
-            }
+            if(n >= max ){
+                //document.getElementById(id).style.height = '0px';
+                clearInterval(intervalSlideDown);
+            }    
+            document.getElementById(id).style.height = n.toString() + 'px';
         }
 
     </script>
@@ -77,14 +79,14 @@
 <body>
     <div class="contenedor">
         <h1>slideDown() ''</h1>
-        <div class='caja cajaSlideDown' id="caja1"></div>
-        <button onclick="iniciarSlideDown()">iniciar</button>
+        <div class='caja cajaSlideUp' id="caja1"></div>
+        <button onclick="iniciarSlideUp()">iniciar</button>
     </div>
 
     <div class="contenedor">
-        <h1>fadeOut() ''</h1>
-        <div class='caja cajaFadeOut' id="caja2"></div>
-        <button onclick="iniciarFadeOut()">iniciar</button>
+        <h1>slideUp() ''</h1>
+        <div class='caja cajaSlideDown' id="caja2"></div>
+        <button onclick="iniciarSlideDown()">iniciar</button>
     </div>
 </body>
 </html>

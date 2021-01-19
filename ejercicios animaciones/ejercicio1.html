@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +11,22 @@
         var arrayTexto = ['primero', 'segundo', 'tercero', 'cuarto'];
         var arrayTimeout = [];
         var arrayDivs = [];
-        function iniciar(){
-            for( var i = 0; i < arrayColors.length; i++){
-                arrayTimeout[i] = setTimeout(crearElemento, (1000 + i * 1000),arrayColors[i], arrayTexto[i]);
+
+        function iniciar() {
+            for (var i = 0; i < arrayColors.length + 1; i++) {
+                if (i < 4)
+                    arrayTimeout[i] = setTimeout(crearElemento, (1000 + i * 1000), arrayColors[i], arrayTexto[i]);
+                else {
+                    let miPrimeraPromesa = new Promise((resolve, reject) => {
+                        setTimeout(function () {
+                            resolve(borrar());
+                        }, 1000 + i * 1000);
+                    });
+                }
             }
         }
 
-        function crearElemento(color, texto){
+        function crearElemento(color, texto) {
             var ele = document.createElement('div');
             ele.id = texto;
             ele.style.width = '85%';
@@ -28,10 +38,10 @@
             document.body.appendChild(ele);
         }
 
-        function borrar(){
-            for(var i = 0; i < arrayTimeout.length;i++)
+        function borrar() {
+            for (var i = 0; i < arrayTimeout.length; i++)
                 clearTimeout(arrayTimeout[i]);
-            for(var i = 0; i < arrayDivs.length; i++){
+            for (var i = 0; i < arrayDivs.length; i++) {
                 document.body.removeChild(arrayDivs[i]);
             }
             arrayDivs = [];
@@ -39,10 +49,14 @@
             iniciar();
         }
 
+
+
         window.onload = iniciar;
     </script>
 </head>
+
 <body>
     <h1>Pincha en cualquiera de los textos</h1>
 </body>
+
 </html>

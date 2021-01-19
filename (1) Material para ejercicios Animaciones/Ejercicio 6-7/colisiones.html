@@ -16,6 +16,7 @@
 			//console.log(pos);
 			//console.log(pos - step);*/
 			element.style.left = (parseFloat(pos) - step)+'px';
+			test();
 		}
 
 		function drcha(){
@@ -27,6 +28,7 @@
 			//console.log(pos);
 			//console.log(pos - step);*/
 			element.style.left = (parseFloat(pos) + step)+'px';
+			test();
 		}
 
 		function abj(){
@@ -38,6 +40,7 @@
 			//console.log(pos);
 			//console.log(pos - step);*/
 			element.style.top = (parseFloat(pos) + step)+'px';
+			test();
 		}
 
 		function arr(){
@@ -49,6 +52,25 @@
 			//console.log(pos);
 			//console.log(pos - step);*/
 			element.style.top = (parseFloat(pos) - step)+'px';
+			test();
+		}
+
+		function test(){
+			var element = document.getElementById('caja');
+			var cajaGrande = document.getElementById('cuadrado');
+			console.log(cajaGrande.getBoundingClientRect());
+			console.log(element.getClientRects());
+			element = element.getBoundingClientRect();
+			cajaGrande = cajaGrande.getBoundingClientRect();
+			if(cajaGrande.x < element.x && 
+				cajaGrande.y < element.y){
+					document.getElementById('caja').style.backgroundColor='red';
+					document.getElementById('caja').innerHTML = '';
+				}
+			else{
+				document.getElementById('caja').style.backgroundColor='greenyellow';
+					document.getElementById('caja').innerHTML = 'Pincha aquí también';
+			}
 		}
 	</script>
 </head>
@@ -58,9 +80,10 @@
 		<button id="right" onclick="drcha()">&raquo;</button>
 		<button id="top" onclick="arr()">&laquo;</button> 
 		<button id="bottom" onclick="abj()">&laquo;</button>
+		<button onclick="test()">test</button>
 		<input type="number" value="50" id="mov"></input>
 		<div class="block" id="caja"><span id="texto">Pincha aquí también<span></div>
-		<div class="cuadrado"></div>
+		<div class="cuadrado" id="cuadrado"></div>
 	</div>
 </body>
 </html>

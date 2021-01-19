@@ -63,7 +63,9 @@
 			element = element.getBoundingClientRect();
 			cajaGrande = cajaGrande.getBoundingClientRect();
 			if(cajaGrande.x < element.x && 
-				cajaGrande.y < element.y){
+				(cajaGrande.x + cajaGrande.width) > (element.x + element.width) &&
+				(cajaGrande.y + cajaGrande.height) > (element.y + element.width) &&
+				cajaGrande.y < element.y ){
 					document.getElementById('caja').style.backgroundColor='red';
 					document.getElementById('caja').innerHTML = '';
 				}

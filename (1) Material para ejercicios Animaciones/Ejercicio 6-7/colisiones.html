@@ -1,92 +1,96 @@
 ﻿<!DOCTYPE html>
 
 <html>
+
 <head>
 	<title>Ejemplo de animación con colisiones</title>
-	
+
 	<link rel="stylesheet" href="colisiones.css">
 
 	<script>
-		function izq(){
+		function izq() {
 			var element = document.getElementById('caja');
 			var step = parseFloat(document.getElementById('mov').value);
-			var pos =  window.getComputedStyle(element).left.slice(0,-2);
-			//console.log(window.getComputedStyle(element).left);
-			//console.log(step);
-			//console.log(pos);
-			//console.log(pos - step);*/
-			element.style.left = (parseFloat(pos) - step)+'px';
+			var pos = window.getComputedStyle(element).left.slice(0, -2);
+			element.style.left = (parseFloat(pos) - step) + 'px';
 			test();
 		}
 
-		function drcha(){
+		function drcha() {
 			var element = document.getElementById('caja');
 			var step = parseFloat(document.getElementById('mov').value);
-			var pos =  window.getComputedStyle(element).left.slice(0,-2);
-			//console.log(window.getComputedStyle(element).left);
-			//console.log(step);
-			//console.log(pos);
-			//console.log(pos - step);*/
-			element.style.left = (parseFloat(pos) + step)+'px';
+			var pos = window.getComputedStyle(element).left.slice(0, -2);
+			element.style.left = (parseFloat(pos) + step) + 'px';
 			test();
 		}
 
-		function abj(){
+		function abj() {
 			var element = document.getElementById('caja');
 			var step = parseFloat(document.getElementById('mov').value);
-			var pos =  window.getComputedStyle(element).top.slice(0,-2);
-			//console.log(window.getComputedStyle(element).left);
-			//console.log(step);
-			//console.log(pos);
-			//console.log(pos - step);*/
-			element.style.top = (parseFloat(pos) + step)+'px';
+			var pos = window.getComputedStyle(element).top.slice(0, -2);
+			element.style.top = (parseFloat(pos) + step) + 'px';
 			test();
 		}
 
-		function arr(){
+		function arr() {
 			var element = document.getElementById('caja');
 			var step = parseFloat(document.getElementById('mov').value);
-			var pos =  window.getComputedStyle(element).top.slice(0,-2);
-			//console.log(window.getComputedStyle(element).left);
-			//console.log(step);
-			//console.log(pos);
-			//console.log(pos - step);*/
-			element.style.top = (parseFloat(pos) - step)+'px';
+			var pos = window.getComputedStyle(element).top.slice(0, -2);
+			element.style.top = (parseFloat(pos) - step) + 'px';
 			test();
 		}
 
-		function test(){
+		function test() {
 			var element = document.getElementById('caja');
 			var cajaGrande = document.getElementById('cuadrado');
 			console.log(cajaGrande.getBoundingClientRect());
 			console.log(element.getClientRects());
 			element = element.getBoundingClientRect();
 			cajaGrande = cajaGrande.getBoundingClientRect();
-			if(cajaGrande.x < element.x && 
+			if (cajaGrande.x < element.x &&
 				(cajaGrande.x + cajaGrande.width) > (element.x + element.width) &&
 				(cajaGrande.y + cajaGrande.height) > (element.y + element.width) &&
-				cajaGrande.y < element.y ){
-					document.getElementById('caja').style.backgroundColor='red';
-					document.getElementById('caja').innerHTML = '';
-				}
-			else{
-				document.getElementById('caja').style.backgroundColor='greenyellow';
-					document.getElementById('caja').innerHTML = 'Pincha aquí también';
+				cajaGrande.y < element.y) {
+				document.getElementById('caja').style.backgroundColor = 'red';
+				document.getElementById('caja').innerHTML = '';
+			} else {
+				document.getElementById('caja').style.backgroundColor = 'greenyellow';
+				document.getElementById('caja').innerHTML = 'Pincha aquí también';
 			}
+		}
+
+		function allowDrop(ev) {
+			ev.preventDefault();
+		}
+
+		function drag(ev) {
+			ev.dataTransfer.setData("text", ev.target.id);
+		}
+
+		function drop(ev) {
+			ev.preventDefault();
+			var data = ev.dataTransfer.getData("text");
+			var element = document.getElementById(data);
+			var nuevaCaja = ev.target.appendChild(element);
+			nuevaCaja.style.top = ev.clientY + "px";
+			nuevaCaja.style.left = ev.clientX + "px";
+			test();
 		}
 	</script>
 </head>
+
 <body>
-	<div id="container">
-		<button id="left" onclick="izq()">&laquo;</button> 
+	<div id="container" ondrop="drop(event)" ondragover="allowDrop(event)">
+		<button id="left" onclick="izq()">&laquo;</button>
 		<button id="right" onclick="drcha()">&raquo;</button>
-		<button id="top" onclick="arr()">&laquo;</button> 
+		<button id="top" onclick="arr()">&laquo;</button>
 		<button id="bottom" onclick="abj()">&laquo;</button>
 		<button onclick="test()">test</button>
 		<input type="number" value="50" id="mov"></input>
-		<div class="block" id="caja"><span id="texto">Pincha aquí también<span></div>
+		<div class="block" id="caja" draggable="true" ondragstart="drag(event)"><span id="texto">Pincha aquí
+				también<span></div>
 		<div class="cuadrado" id="cuadrado"></div>
 	</div>
 </body>
-</html>
 
+</html>

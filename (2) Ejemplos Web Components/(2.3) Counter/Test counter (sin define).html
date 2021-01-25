@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Este ejemplo implementa y define un CustomElement básico que incrementa un contador cuando se hace click en el número definido en la página.
+	   Además, se prueba a definir el componente en la misma página --> 
+  <title>Native Web Component</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <style>
+	num-counter-1{ cursor: pointer}
+  
+  </style>
+  <script src="num-counter (sin define).js"></script>	
+</head>
+
+<body>
+	<num-counter-1></num-counter-1>	
+	
+	<script>
+		window.customElements.define('num-counter-1', Counter1);
+	</script>
+</body>
+
+</html>

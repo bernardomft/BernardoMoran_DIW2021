@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Este ejemplo sirve para probar el funcionamiento de un Custom Element creado como un módulo -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Prueba WebComponents con modules</title>	
+</head>
+<body>
+	<h1>Prueba WebComponents con modules</h1>
+	
+	<sell-button></sell-button>
+	
+	<!-- En este caso importamos solo la clase, pero como ya está definido no hace falta hacer nada más 
+		Si no estuviera definido en el JS habría que hacerlo aquí -->
+	<script type="module">
+		import SellButton from "./sell-button.js"		
+	</script>		
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <!-- El objetivo de esta página es mostrar cómo funciona el JS Reactivo -->
+  <title>Reactividad con JavaScript nativo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <script src="lib.js"></script>	
+</head>
+
+
+	<h1 id="nombre">
+		Mi nombre es Eliseo <!-- Esto será reactivo -->
+	</h1>
+	<input id="texto" type="text" placeholder="Cambia el nombre del h1">
+
+	<script>
+		var $h1 = document.getElementById('nombre')
+		  
+		var yo = {
+		  nombre: 'Eliseo'
+		}
+		
+		// El input se asocia al atributo nombre del objeto yo
+		document.getElementById('texto').addEventListener("change", (e) => yo.nombre = e.target.value);
+
+		// Definimos qué va a ocurrir cuando cambie el atributo nombre
+		yo.cuandoCambie('nombre', function (valorNuevo, valorAnterior) {
+		  $h1.textContent = 'Mi nombre era ' + valorAnterior + ' pero cambio a ' + valorNuevo
+		})
+
+	</script>
+</body>
+
+</html>

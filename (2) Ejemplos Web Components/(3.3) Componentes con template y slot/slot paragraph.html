@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+      <!-- Este ejemplo sirve para explicar el uso de templates con slot para personalizar el contenido de un Web Component
+		   según lo definido cuando declaramos la etiqueta -->
+  <title>Native Web Component</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+</head>
+
+<body>
+	<my-paragraph>
+	  <span slot="my-text">¡Tengamos un texto diferente!</span>
+	</my-paragraph>
+	<my-paragraph>
+	  <ul slot="my-text">
+		<li>¡Tengamos un texto diferente!</li>
+		<li>¡En una lista!</li>
+	  </ul>
+	</my-paragraph>
+	<script src="my-paragraph.js"></script>	
+</body>
+
+</html>

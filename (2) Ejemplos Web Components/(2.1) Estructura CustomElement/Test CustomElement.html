@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Este ejemplo sirve para probar a crear un Custom Element básico -->
+  <title>Native Web Component</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<test-element status="1"></test-element>
+	
+	<script src="test-element.js"></script>	
+	<script>
+		var testE = document.querySelector("test-element");
+		testE.setAttribute("status", 3);
+	</script>
+</body>
+
+</html>

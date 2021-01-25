@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Este ejemplo sirve para entender el uso básico del shadow DOM en combinación con la etiqueta template -->
+	<meta charset="UTF-8">
+	<title>Shadow DOM</title>
+	<style>
+		p{
+			color: red;
+		}		
+	</style>
+</head>
+<body>
+	<div id="elem"></div>
+	
+	<p>Prueba de párrafo desde la página</p>
+
+	<template>
+		<style>
+			p{
+				color: blue;
+			}	
+		</style>
+		<p>Prueba de párrafo desde template</p>
+	</template>
+
+	<script>
+		// Accedo al template y a su propiedad específica content
+		var template = document.querySelector('template').content;
+
+		// Clono el contenido del template
+		var clone = template.cloneNode(true);
+
+		// Accedo a un elemento
+		var elem = document.querySelector("#elem");
+		
+		// Creo el shadow root
+		var shadow = elem.attachShadow({mode: 'open'});
+		
+		// Le añado el clon del template
+		shadow.appendChild(clone);
+	</script>
+</body>
+</html>

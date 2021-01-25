@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Este ejemplo sirve para explicar el uso de una etiqueta template básica de HTML -->
+	<meta charset="UTF-8">
+	<title>Template simple</title>
+</head>
+<body>
+	<h1>Template simple</h1>
+
+	<template id="mitemplate">
+		<p>Esto es un template!!</p>
+	</template>
+	<script>
+		var template = document.getElementById('mitemplate').content;
+		var clone = template.cloneNode(true);
+		document.body.appendChild(clone);
+	</script>
+</body>
+</html>

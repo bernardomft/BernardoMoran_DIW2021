@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Este ejemplo implementa y define un CustomElement básico -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Primer Custom Element</title>
+</head>
+<body>
+	<h1>Hola Mundo Web Components - Custom Element</h1>
+	
+	<!-- Uso mi Web Component -->
+	<dw-holamundo></dw-holamundo>
+
+	<script>
+		class DwHolamundo extends HTMLElement {
+			constructor() {
+				super();
+				this.textContent = 'Hola mundo!!!'
+			}
+		}
+		
+		customElements.define('dw-holamundo', DwHolamundo);
+	</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Este ejemplo sirve para entender el uso básico del shadow DOM dentro de un CustomElement y ver cómo se encapsulan los estilos -->
+	<meta charset="UTF-8">
+	<title>Shadow DOM</title>
+	<style>
+		p{
+			color: red;
+		}	
+	</style>
+</head>
+<body>
+	<p id="elem">Hola</p>
+	
+	<template>
+		<style>
+			p {
+				color: blue;
+			}
+		</style>
+		<p>Hello world!</p>
+	</template>
+	
+	<hello-world></hello-world>
+
+	<script>
+		class HelloWorld extends HTMLElement {
+			constructor() {
+				super();
+				var template = document.querySelector('template').content;
+
+				// Clono el contenido del template
+				var elem = template.cloneNode(true);
+
+				// Creo el shadow root para todo el componente
+				this.attachShadow({mode: 'open'});
+				
+				// Accedo al shadow root e incluyo el template 
+				this.shadowRoot.appendChild(elem);
+				
+				// Si comento las dos líneas anteriores y ponemos this.appendChild(elem), entonces se añade al DOM de la página
+				//this.appendChild(elem)
+			}
+		}
+		
+		customElements.define('hello-world', HelloWorld);
+		
+		// Si no creamos Shadow DOM podemos acceder al contenido interno el elemento
+		//alert(document.querySelector("hello-world").querySelector("p").innerHTML);
+	</script>
+</body>
+</html>

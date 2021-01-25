@@ -1,0 +1,24 @@
+{
+  "name": "server.js",
+  "version": "1.0.0",
+  "description": "Prueba de módulos",
+  "main": "server.js",
+  "scripts": {
+    "prestart": "node_modules/.bin/babel *.js --out-dir old",
+	"start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "^2.4.3",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.0",
+    "@babel/core": "^7.10.0",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.10.0",
+    "babel-plugin-remove-import-export": "^1.1.1"
+  }
+}

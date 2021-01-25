@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Este ejemplo sirve para probar el funcionamiento de dos componentes web, uno de los cuales incluye al otro --> 
+  <title>Native Web Component</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+</head>
+
+<body>
+	<my-button label="Click Me" as-atom></my-button>
+	
+	<my-dropdown 
+		label="Dropdown" option="option2" 
+		options='{ "option1": { "label": "Option 1" }, "option2": { "label": "Option 2" } }'>
+	</my-dropdown>
+	<script src="mybutton.js"></script>
+	<script src="dropdown.js"></script>
+	
+	<!-- Definición de onclick desde el navegador -->
+	<script>
+		document.querySelector('my-button').onclick = element => alert("Definido desde el HTML: " + element.target);		
+	</script>
+	
+</body>
+
+</html>

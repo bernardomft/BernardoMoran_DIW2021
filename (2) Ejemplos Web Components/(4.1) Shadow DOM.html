@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Este ejemplo sirve para entender el uso básico del shadow DOM -->
+	<meta charset="UTF-8">
+	<title>Shadow DOM</title>
+	<style>
+		p{
+			color: red;
+		}		
+	</style>
+</head>
+<body>
+	<div id="elem">Hola</div>
+
+	<script>
+		// Un elemento de la página
+		var elem = document.querySelector("#elem");
+
+		// Convertimos ese elemento en un "shadow root" y devuelve una referencia al DOM
+		var shadow = elem.attachShadow({mode: 'open'});
+		
+		// Si cambiamos el modo a closed, el elemento shadowRoot devolverá null
+		// El atributo shadowRoot devuelve una referencia al shadow DOM, que en el caso de ser closed solo se podría recuperar con attachShadow
+		console.log(elem.shadowRoot);
+		
+		// Cambiamos el contenido de ese elemento, esto será creado como "shadow DOM"
+		shadow.innerHTML = "<p>Esto va al shadow DOM</p>";
+				
+		// En el DOM principal la consola muestra "Hola" que es el contenido de la propia página, no el creado dinámicamente por Shadow DOM
+		console.log(document.getElementById("elem").innerHTML);
+	</script>
+</body>
+</html>

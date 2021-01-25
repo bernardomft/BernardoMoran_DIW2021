@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Este ejemplo sirve para explicar el funcionamiento de un template anidando diferentes nodos -->
+	<meta charset="UTF-8">
+	<title>Template simple</title>
+</head>
+<body>
+	<template id="templatesimple">
+		<style>
+			h1{
+				color: red;
+			}
+			p{
+				background-color: #ddd;
+			}
+		</style>
+		<h1>Ciudades del mundo</h1>
+		<template id="templateciudades">
+			<p></p>
+		</template>
+	</template>
+	<script>
+		var ciudades = ["Madrid", "Barcelona", "Valencia"];
+
+		var template = document.querySelector('#templatesimple').content;
+		
+		// Se carga un nuevo párrafo por cada valor del array ciudades
+		var p = template.querySelector("#templateciudades").content.querySelector("p");
+		ciudades.forEach(ciudad => {
+			var newP = p.cloneNode(true);
+			newP.textContent = ciudad;
+			template.appendChild(newP);
+		});
+		
+		// Se inserva el template en el body de la página
+		var clone = template.cloneNode(true);
+		document.body.appendChild(clone);
+	</script>
+</body>
+</html>

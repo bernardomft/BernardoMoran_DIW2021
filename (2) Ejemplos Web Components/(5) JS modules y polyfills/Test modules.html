@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Este ejemplo sirve para probar el funcionamiento de los módulos de JavaScript -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Prueba modules</title>	
+</head>
+<body>
+	<h1>Prueba modules</h1>
+	
+	<p>Ver consola</p>
+	
+	<!-- Ejecuta todo el código, probar a quitar el tipo "module" para ver que no funciona -->
+	<script type="module" src="testmodules.js"></script>
+	
+	<!-- Si queremos utilizar algo que se ha exportado, solo se puede con import. Ejemplo importado todo (hay que poner el prefijo del nombre de objeto) -->
+	<script type="module" >
+		import * as obj from "./testmodules.js"
+		console.log(obj.f1());
+	</script>
+	
+	<!-- Si queremos utilizar algo que se ha exportado, solo se puede con import (si no va entre corchetes se importa aquello definido como default) -->
+	<script type="module" >
+		import f2 from "./testmodules.js"
+		console.log(f2());
+	</script>
+	
+	<!-- Si queremos utilizar algo que se ha exportado, solo se puede con import (entre corchetes aquello que no está definido con default) -->
+	<script type="module" >
+		import { saludar, despedir } from "./testmodules.js"
+		console.log(saludar(), despedir());
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Este ejemplo sirve para probar el funcionamiento de un Custom Element creado como un módulo.
+		Además se garantiza el funcionamiento en navegadores antiguos mediante el uso de polyfills -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Prueba WebComponents con modules</title>	
+	
+	<!-- Este archivo permite que se ejecuten los webcomponents en ie y otros navegadores antiguos. Se detecta con la etiqueta nomodule -->
+	<script nomodule src="node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"></script>
+	<script nomodule src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+	
+	<!-- IE11 y otros navegadores antiguos. Archivo sell-button modificado con babel. Esto se puede automatizar con node.js
+		npm install --save-dev @babel/core @babel/cli
+		Luego posicionarnos en ./node_modules/.bin/babel a partir de la carpeta de este fichero 
+		Y los comandos se explican aquí https://babeljs.io/docs/en/babel-cli 
+		Por ejemplo para transformar todos los js y moverlos a la carpeta old: node_modules\.bin\babel *.js --out-dir old
+		
+		En nuestro caso la opción por defecto no funciona y es necesario un plugin para quitar los import y export
+		https://www.npmjs.com/package/babel-plugin-remove-import-export 
+		
+		En el archivo .babelrc se especifica la configuración básica junto a este plugin y una vez realizada se ejecuta el comando
+		
+		También se puede configurar package.json para que se ejecute el comando cada vez que se inicia el servidor -->
+	<script nomodule src='old/sell-button.js'></script>
+	
+	<!-- En este caso importamos el módulo al completo, que se encarga de definir el componente -->
+	<script type="module" src="sell-button.js"></script>
+	
+</head>
+<body>
+	<h1>Prueba WebComponents con modules</h1>
+	
+	<sell-button></sell-button>	
+
+</html>

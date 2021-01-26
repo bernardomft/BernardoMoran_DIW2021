@@ -5,13 +5,18 @@ class WcBlink extends HTMLElement{
 
     connectedCallback(){
         this.innerHTML = 'hola¡¡¡';
-        if(this.getAttribute('baseColor')){
-            this.style.color = this.getAttribute('baseColor');
+        if(this.baseColor){
+            this.style.color = this.baseColor;
         }
+        else
+            this.baseColor = 'inherit';
 
-        if(this.getAttribute('alternativeColor') && this.getAttribute('changeInterval')){
+        if(!(this.alternativeColor)){
+            this.alternativeColor = 'transparent';
+        }
+        if(this.alternativeColor && this.changeInterval){
             console.log(this.style.color);
-            var interval = setInterval(this.cambiaColor, this.getAttribute('changeInterval'), this.getAttribute('baseColor'), this.getAttribute('alternativeColor'));
+            var interval = setInterval(this.cambiaColor, this.changeInterval, this.baseColor, this.alternativeColor);
         }
     }
 

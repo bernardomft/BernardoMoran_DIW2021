@@ -29,12 +29,6 @@ class WcBlink extends HTMLElement{
             ele.style.color = color1;
     }
 
-    /*attributeChangedCallback(attr, oldVal, newVal) {
-		  if(this.getAttribute(attr)){
-            this.style.color = this.getAttribute(oldVal);
-            }	
-	}*/
-
     get baseColor(){
         return this.getAttribute('baseColor');
     }

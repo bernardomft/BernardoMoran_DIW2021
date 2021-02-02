@@ -50,7 +50,7 @@ class ProgressBar extends HTMLElement {
                 border:1px solid black;
             }
             div.barra-pequeña{
-                heigth: 100%;
+                height: 100%;
                 background-color: pink;
                 width: 0%;
             }

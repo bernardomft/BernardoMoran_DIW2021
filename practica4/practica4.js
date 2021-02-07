@@ -10,31 +10,26 @@ class NarutoInvaders extends HTMLElement {
         this.render();
         //Este evento con su funcion asociado se va a encargar de el movimiento de la nave
         document.addEventListener('keydown', (e) => {
-
             var nave = this.shadowRoot.querySelector('#nave-principal');
+            var mapa = this.shadowRoot.querySelector('#mapa');
             var step = 15;
+            var pos = parseFloat(window.getComputedStyle(nave).bottom.slice(0, -2));
+            var pos2 = parseFloat(window.getComputedStyle(nave).left.slice(0, -1));
             if (e.key === 'ArrowUp') {
-                var pos = parseFloat(window.getComputedStyle(nave).bottom.slice(0, -2));
                 pos = pos + step;
-                var pos2 = parseFloat(window.getComputedStyle(nave).left.slice(0, -1));
-                nave.setAttribute('style', 'bottom: ' + pos + 'px;left: ' + pos2 + 'px');
             } else if (e.key === 'ArrowDown') {
-                var pos = parseFloat(window.getComputedStyle(nave).bottom.slice(0, -2));
                 pos = pos - step;
-                var pos2 = parseFloat(window.getComputedStyle(nave).left.slice(0, -1));
-                nave.setAttribute('style', 'bottom: ' + pos + 'px;left: ' + pos2 + 'px');
             }
             else if (e.key === 'ArrowRight') {
-                var pos = parseFloat(window.getComputedStyle(nave).left.slice(0, -1));
-                var pos2 = parseFloat(window.getComputedStyle(nave).bottom.slice(0, -2));
-                pos = pos + step;
-                nave.setAttribute('style', 'bottom: ' + pos2 + 'px;left: ' + pos + 'px');
+                pos2 = pos2 + step;
             } else if (e.key === 'ArrowLeft') {
-                var pos = parseFloat(window.getComputedStyle(nave).left.slice(0, -1));
-                var pos2 = parseFloat(window.getComputedStyle(nave).bottom.slice(0, -2));
-                pos = pos - step;
-                nave.setAttribute('style', 'bottom: ' + pos2 + 'px;left: ' + pos + 'px');
+                pos2 = pos2 - step;
             }
+            console.log(window.getComputedStyle(mapa).width.slice(0,-2));
+            console.log(pos2);
+            if(!(pos<0) && !(pos2<0) && !(pos2>window.getComputedStyle(mapa).width.slice(0,-2)-80)
+                && !(pos>window.getComputedStyle(mapa).height.slice(0,-2)-80))
+                nave.setAttribute('style', 'bottom: ' + pos + 'px;left: ' + pos2 + 'px');
 
         });
     }

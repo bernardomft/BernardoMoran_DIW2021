@@ -8,10 +8,30 @@ class NarutoInvaders extends HTMLElement {
 
     connectedCallback() {
         this.render();
+        var mapa = this.shadowRoot.querySelector('#mapa');
+        /*var interval= setInterval(() => {
+            var arrayEnemigos = [];
+           for(var i = 0; i<=5;i++){
+               arrayEnemigos[i] = document.createElement('img');
+               arrayEnemigos[i].setAttribute('src','img/zetsu.jpg');
+               arrayEnemigos[i].setAttribute('height','80');
+               arrayEnemigos[i].setAttribute('width','80');
+               arrayEnemigos[i].setAttribute('style','left: ' + (i*20)+'%');
+               mapa.appendChild(arrayEnemigos[i]);
+           }
+        }, 10000);*/
+        var arrayEnemigos = [];
+        for(var i = 0; i<=5;i++){
+            arrayEnemigos[i] = document.createElement('img');
+            arrayEnemigos[i].setAttribute('src','img/zetsu.jpg');
+            arrayEnemigos[i].setAttribute('height','80');
+            arrayEnemigos[i].setAttribute('width','80');
+            arrayEnemigos[i].setAttribute('style','position:absolute; left: ' + (i*18)+'%');
+            mapa.appendChild(arrayEnemigos[i]);
+        }
         //Este evento con su funcion asociado se va a encargar de el movimiento de la nave
         document.addEventListener('keydown', (e) => {
             var nave = this.shadowRoot.querySelector('#nave-principal');
-            var mapa = this.shadowRoot.querySelector('#mapa');
             var step = 15;
             var pos = parseFloat(window.getComputedStyle(nave).bottom.slice(0, -2));
             var pos2 = parseFloat(window.getComputedStyle(nave).left.slice(0, -1));
@@ -25,12 +45,9 @@ class NarutoInvaders extends HTMLElement {
             } else if (e.key === 'ArrowLeft') {
                 pos2 = pos2 - step;
             }
-            console.log(window.getComputedStyle(mapa).width.slice(0,-2));
-            console.log(pos2);
             if(!(pos<0) && !(pos2<0) && !(pos2>window.getComputedStyle(mapa).width.slice(0,-2)-80)
                 && !(pos>window.getComputedStyle(mapa).height.slice(0,-2)-80))
                 nave.setAttribute('style', 'bottom: ' + pos + 'px;left: ' + pos2 + 'px');
-
         });
     }
 
@@ -40,6 +57,7 @@ class NarutoInvaders extends HTMLElement {
         this.shadowRoot.innerHTML = `
         <style>
             div.mapa{
+                position:relative;
                 width: 100%;
                 min-height: 100vh;
                 background-image: url('img/estrellas.jpg');

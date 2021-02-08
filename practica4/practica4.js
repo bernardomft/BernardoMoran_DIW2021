@@ -16,7 +16,7 @@ class NarutoInvaders extends HTMLElement {
         //Este evento con su funcion asociado se va a encargar de el movimiento de la nave
         document.addEventListener('keydown', (e) => {
             var nave = this.shadowRoot.querySelector('#nave-principal');
-            var step = 15;
+            var step = 25;
             var pos = parseFloat(window.getComputedStyle(nave).bottom.slice(0, -2));
             var pos2 = parseFloat(window.getComputedStyle(nave).left.slice(0, -1));
             if (e.key === ' ') {
@@ -36,13 +36,14 @@ class NarutoInvaders extends HTMLElement {
 
         });
         var interval = setInterval(() => {
-            for (var i = 0; i < 5; i++) {
-                arrayEnemigos[i] = document.createElement('img');
-                arrayEnemigos[i].setAttribute('src', 'img/zetsu.jpg');
-                arrayEnemigos[i].setAttribute('height', '80');
-                arrayEnemigos[i].setAttribute('width', '80');
-                arrayEnemigos[i].setAttribute('style', 'position:absolute; left: ' + ((i * 20) + 10) + '%;top: 0px');
-                mapa.appendChild(arrayEnemigos[i]);
+            for (var i = 0; i <5; i++) {
+                var tmp = document.createElement('img');
+                tmp.setAttribute('src', 'img/zetsu.jpg');
+                tmp.setAttribute('height', '80');
+                tmp.setAttribute('width', '80');
+                tmp.setAttribute('style', 'position:absolute; left: ' + ((i * 20) + 10) + '%;top: 0px');
+                mapa.appendChild(tmp);
+                arrayEnemigos.push(tmp)
                 intervalMoveArray.push(setInterval(function (ele, i) {
                     var step = 15;
                     var pos = parseFloat(window.getComputedStyle(ele).top.slice(0, -2));
@@ -51,13 +52,14 @@ class NarutoInvaders extends HTMLElement {
                         ele.setAttribute('style', 'position:absolute; left: ' + ((i * 20) + 10) + '%;top:' + pos + 'px');
                         if (arrayKunai.length > 0) {
                             for (var j = 0; j < arrayKunai.length; j++) {
-                                if (window.getComputedStyle(arrayKunai[j]).left.slice(0, -2) > window.getComputedStyle(ele).left.slice(0, -2) &&
-                                    (parseFloat(window.getComputedStyle(arrayKunai[j]).left.slice(0, -2)) + 40) < (parseFloat(window.getComputedStyle(ele).left.slice(0, -2))+80)) {
+                                if (window.getComputedStyle(arrayKunai[j]).left.slice(0, -2) >= window.getComputedStyle(ele).left.slice(0, -2) &&
+                                    (parseFloat(window.getComputedStyle(arrayKunai[j]).left.slice(0, -2)) + 40) <= (parseFloat(window.getComputedStyle(ele).left.slice(0, -2))+80)) {
                                     console.log('mismo left');
                                     if(window.getComputedStyle(arrayKunai[j]).bottom.slice(0,-2) > window.getComputedStyle(ele).bottom.slice(0,-2) ){
                                         console.log('impacto');
                                         ele.setAttribute('style', 'display:none');
                                         arrayKunai[j].setAttribute('style', 'display:none');
+                                        clearInterval(intervalMoveArray[arrayEnemigos.indexOf(ele)]);
                                     }
                                 }
                             }
@@ -67,7 +69,7 @@ class NarutoInvaders extends HTMLElement {
                         intervalMoveArray.forEach(a => clearInterval(a));
                         clearInterval(interval);
                     }
-                }, 500, arrayEnemigos[i], i));
+                }, 500, tmp, i));
             }
         }, 4000);
 

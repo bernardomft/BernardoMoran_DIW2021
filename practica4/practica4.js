@@ -9,6 +9,8 @@ class NarutoInvaders extends HTMLElement {
     connectedCallback() {
         this.render();
         var mapa = this.shadowRoot.querySelector('#mapa');
+        var intervalMoveArray = [];
+        //Este evento con su funcion asociado se va a encargar de el movimiento de la nave
         document.addEventListener('keydown', (e) => {
             var nave = this.shadowRoot.querySelector('#nave-principal');
             var step = 15;
@@ -31,46 +33,43 @@ class NarutoInvaders extends HTMLElement {
         });
         var interval= setInterval(() => {
             var arrayEnemigos = [];
-            for(var i = 0; i<=5;i++){
+            for(var i = 0; i<5;i++){
                 arrayEnemigos[i] = document.createElement('img');
                 arrayEnemigos[i].setAttribute('src','img/zetsu.jpg');
                 arrayEnemigos[i].setAttribute('height','80');
                 arrayEnemigos[i].setAttribute('width','80');
-                arrayEnemigos[i].setAttribute('style','position:absolute; left: ' + (i*17)+'%;top: 0px');
+                arrayEnemigos[i].setAttribute('style','position:absolute; left: ' + ((i*20)+10)+'%;top: 0px');
                 mapa.appendChild(arrayEnemigos[i]);
-                var move = setInterval(function (ele,i){
-                    var step = 20;
+                intervalMoveArray.push(setInterval(function (ele,i){
+                    var step = 30;
                     var pos = parseFloat(window.getComputedStyle(ele).top.slice(0, -2));
                     pos = pos + step;
                     if(!(pos+80>window.getComputedStyle(mapa).height.slice(0,-2)))
-                        ele.setAttribute('style','position:absolute; left: ' + (i*18)+'%;top:'+pos +'px');
+                        ele.setAttribute('style','position:absolute; left: ' + ((i*20)+10)+'%;top:'+pos +'px');
+                    else{
+                        console.log('game over');
+                        //clearInterval(move);
+                        intervalMoveArray.forEach(a => clearInterval(a));
+                        clearInterval(interval);
+                    }
+                },1000,arrayEnemigos[i],i));
+                /*var move = setInterval(function (ele,i){
+                    var step = 30;
+                    var pos = parseFloat(window.getComputedStyle(ele).top.slice(0, -2));
+                    pos = pos + step;
+                    if(!(pos+80>window.getComputedStyle(mapa).height.slice(0,-2)))
+                        ele.setAttribute('style','position:absolute; left: ' + ((i*20)+10)+'%;top:'+pos +'px');
                     else{
                         console.log('game over');
                         clearInterval(move);
                         clearInterval(interval);
                     }
-                },1000,arrayEnemigos[i],i);
+                },1000,arrayEnemigos[i],i);*/
             }
 
-        }, 6000);
-        /*
-        var arrayEnemigos = [];
-        for(var i = 0; i<=5;i++){
-            arrayEnemigos[i] = document.createElement('img');
-            arrayEnemigos[i].setAttribute('src','img/zetsu.jpg');
-            arrayEnemigos[i].setAttribute('height','80');
-            arrayEnemigos[i].setAttribute('width','80');
-            arrayEnemigos[i].setAttribute('style','position:absolute; left: ' + (i*17)+'%;top: 0px');
-            mapa.appendChild(arrayEnemigos[i]);
-            var move = setInterval(function (ele,i){
-                var step = 15;
-                var pos = parseFloat(window.getComputedStyle(ele).top.slice(0, -2));
-                console.log(pos);
-                pos = pos + step;
-                ele.setAttribute('style','position:absolute; left: ' + (i*18)+'%;top:'+pos +'px');
-            },1000,arrayEnemigos[i],i);
-        }*/
-        //Este evento con su funcion asociado se va a encargar de el movimiento de la nave
+        }, 4000);
+        
+        
         
     }
 

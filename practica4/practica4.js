@@ -11,6 +11,7 @@ class NarutoInvaders extends HTMLElement {
         var mapa = this.shadowRoot.querySelector('#mapa');
         var intervalMoveArray = [];
         var intervalKunai = [];
+        var arrayEnemigos = [];
         //Este evento con su funcion asociado se va a encargar de el movimiento de la nave
         document.addEventListener('keydown', (e) => {
             var nave = this.shadowRoot.querySelector('#nave-principal');
@@ -18,8 +19,7 @@ class NarutoInvaders extends HTMLElement {
             var pos = parseFloat(window.getComputedStyle(nave).bottom.slice(0, -2));
             var pos2 = parseFloat(window.getComputedStyle(nave).left.slice(0, -1));
             if(e.key === ' '){
-                console.log('por aqui');
-                this.disparar(intervalKunai);
+                this.disparar(intervalKunai,arrayEnemigos);
             }
             else if (e.key === 'ArrowUp') {
                 pos = pos + step;
@@ -37,7 +37,6 @@ class NarutoInvaders extends HTMLElement {
             
         });
         var interval= setInterval(() => {
-            var arrayEnemigos = [];
             for(var i = 0; i<5;i++){
                 arrayEnemigos[i] = document.createElement('img');
                 arrayEnemigos[i].setAttribute('src','img/zetsu.jpg');
@@ -63,7 +62,7 @@ class NarutoInvaders extends HTMLElement {
         
         
     }
-    disparar(intervalKunai){
+    disparar(intervalKunai,arrayEnemigos){
         var mapa = this.shadowRoot.querySelector('#mapa');
         var nave = this.shadowRoot.querySelector('#nave-principal');
         var pos = parseFloat(window.getComputedStyle(nave).bottom.slice(0, -2));
@@ -76,14 +75,26 @@ class NarutoInvaders extends HTMLElement {
         mapa.appendChild(rocket);
         intervalKunai.push(setInterval(function (rocket){
             var step = 5;
-            var pos = parseFloat(window.getComputedStyle(rocket).bottom.slice(0, -2));
+            var pos = parseFloat(window.getComputedStyle(rocket).bottom.slice(0, -2)) + step;
             var pos2 = parseFloat(window.getComputedStyle(rocket).left.slice(0, -2));
             if(!(pos<0) && !(pos2<=0) && !(pos2>window.getComputedStyle(mapa).width.slice(0,-2)-80)
                 && !(pos>window.getComputedStyle(mapa).height.slice(0,-2))){
-                    rocket.setAttribute('style','position:absolute; left: ' + pos2 + 'px;bottom:'+(pos + step) +'px');
+                    arrayEnemigos.forEach(a => {
+                        if(pos2>window.getComputedStyle(a).left.slice(0,-2) && pos+80>window.getComputedStyle(a).bottom.slice(0,-2)){
+                            console.log('mismo left');
+                            console.log('bototm kunai' + pos);
+                            console.log('bottom zetsu' + window.getComputedStyle(a).bottom.slice(0,-2));
+                            rocket.setAttribute('style','display:none');
+                            a.setAttribute('style','display:none');
+
+                        }else{
+                            rocket.setAttribute('style','position:absolute; left: ' + pos2 + 'px;bottom:'+(pos) +'px');
+                        }
+                    })
+
                 }
             else{
-                console.log('kunai pa cuenca');
+                //console.log('kunai pa cuenca');
                 rocket.setAttribute('style','display:none');
             }
            

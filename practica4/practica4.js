@@ -139,3 +139,42 @@ class NarutoInvaders extends HTMLElement {
 }
 
 window.customElements.define('naruto-game', NarutoInvaders);
+
+class NarutoInvadersMenu extends HTMLElement{
+    constructor() {
+        super();
+        this.attachShadow({
+            mode: 'open'
+        });
+    }
+
+    connectedCallback(){
+        this.render();
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+        <style>
+            div.mapa{
+                position:relative;
+                width: 100%;
+                min-height: 100vh;
+                background-image: url('img/konoha.jpg');
+                background-size: cover;
+                z-index: -1;
+            }
+
+            img#nave-principal{
+                position: absolute;
+                left: 50%;
+	            bottom:0px;
+            }
+        </style>
+        <div id="mapa" class="mapa">
+            
+        </div>
+        `;
+    }
+}
+
+window.customElements.define('naruto-menu', NarutoInvadersMenu);

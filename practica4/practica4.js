@@ -53,6 +53,7 @@ class NarutoInvaders extends HTMLElement {
                             for (var j = 0; j < arrayKunai.length; j++) {
                                 if (window.getComputedStyle(arrayKunai[j]).left.slice(0, -2) > window.getComputedStyle(ele).left.slice(0, -2) &&
                                     (parseFloat(window.getComputedStyle(arrayKunai[j]).left.slice(0, -2)) + 40) < (parseFloat(window.getComputedStyle(ele).left.slice(0, -2))+80)) {
+                                    console.log('mismo left');
                                     if(window.getComputedStyle(arrayKunai[j]).bottom.slice(0,-2) > window.getComputedStyle(ele).bottom.slice(0,-2) ){
                                         console.log('impacto');
                                         ele.setAttribute('style', 'display:none');

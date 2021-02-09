@@ -150,28 +150,64 @@ class NarutoInvadersMenu extends HTMLElement{
 
     connectedCallback(){
         this.render();
+        //Mensaje en amarillo y rojo para captar la atencion de el usuario
+        var mensaje = this.shadowRoot.querySelector('#warning');
+        console.log(window.getComputedStyle(mensaje).color);
+        var intervalTexto = setInterval(this.cambiaColor,500,mensaje);
+        var paradaTexto = setTimeout(this.paraInterval,5000,intervalTexto,mensaje);
+        var paradaTexto2 = setTimeout(this.instrucciones,10000,mensaje);
+        var este = document.getElementsByTagName('naruto-menu');
+        console.log(este);
+        var borrar = setTimeout(this.borrar,20000,este);
+    }
+
+    borrar(ele){
+        document.body.innerHTML = '';
+        var tmp = document.createElement('naruto-game');
+        document.body.appendChild(tmp);
+    }
+
+    instrucciones(msg){
+        msg.innerHTML = 'PARA DEFENDER LA ALDEA DEBERÁS MOVER LAS FLECHAS DE TU TECLADO PARA MOVERTE POR EL CAMPO DE BATALLA. ADEMÁS PODRÁS DISPARAR KUNAIS INBUIDOS CON EL CHAKRA DEL KYUBY PRESIONANDO LA BARRA ESPACIADORA';
+    }
+    
+
+    paraInterval(inter, ele){
+        clearInterval(inter);
+        ele.setAttribute('style', 'color:red;font-size:3.5em');
+        ele.innerHTML = 'LA VILLA OCULTA DE LA HOJA ESTÁ SIENDO ATACADA.\nEL CLAN OUTSUKI HA DECIDO MANDAR HORDAS DE ZETSUS BLANCOS\nES TU DEBER COMO CHOUNIN DE KONOHA AYUDAR EN LA DEFENSA';
+    }
+
+    cambiaColor(ele){
+        if(window.getComputedStyle(ele).color === 'rgb(255, 0, 0)')
+            ele.setAttribute('style','color:yellow');
+        else if(window.getComputedStyle(ele).color === 'rgb(255, 255, 0)')
+            ele.setAttribute('style','color:red');
     }
 
     render() {
         this.shadowRoot.innerHTML = `
         <style>
-            div.mapa{
+            div.menu{
                 position:relative;
                 width: 100%;
                 min-height: 100vh;
                 background-image: url('img/konoha.jpg');
                 background-size: cover;
                 z-index: -1;
+                display:flex;
+                justify-content:center;
+                align-items:center;
             }
 
-            img#nave-principal{
-                position: absolute;
-                left: 50%;
-	            bottom:0px;
+            div#warning{
+                font-size:8em;
+                color: yellow;
             }
+
         </style>
-        <div id="mapa" class="mapa">
-            
+        <div id="menu" class="menu">
+            <div id="warning">!ALERTA!</div>
         </div>
         `;
     }

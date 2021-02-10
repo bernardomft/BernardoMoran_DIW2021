@@ -9,6 +9,7 @@ class NarutoInvaders extends HTMLElement {
     connectedCallback() {
         this.render();
         var mapa = this.shadowRoot.querySelector('#mapa');
+        var score = this.shadowRoot.querySelector('#score');
         var intervalMoveArray = [];
         var intervalKunai = [];
         var arrayEnemigos = [];
@@ -57,6 +58,7 @@ class NarutoInvaders extends HTMLElement {
                                     console.log('mismo left');
                                     if(window.getComputedStyle(arrayKunai[j]).bottom.slice(0,-2) > window.getComputedStyle(ele).bottom.slice(0,-2) ){
                                         console.log('impacto');
+                                        score.innerHTML = parseInt(score.innerHTML) + 5;
                                         ele.setAttribute('style', 'display:none');
                                         arrayKunai[j].setAttribute('style', 'display:none');
                                         clearInterval(intervalMoveArray[arrayEnemigos.indexOf(ele)]);
@@ -69,7 +71,7 @@ class NarutoInvaders extends HTMLElement {
                         intervalMoveArray.forEach(a => clearInterval(a));
                         clearInterval(interval);
                     }
-                }, 500, tmp, i));
+                }, 500, tmp, i, score));
             }
         }, 4000);
 
@@ -114,7 +116,7 @@ class NarutoInvaders extends HTMLElement {
                 min-height: 100vh;
                 background-image: url('img/estrellas.jpg');
                 background-size: cover;
-                z-index: -1;
+                z-index: -2;
             }
 
             img#nave-principal{
@@ -122,8 +124,19 @@ class NarutoInvaders extends HTMLElement {
                 left: 50%;
 	            bottom:0px;
             }
+            div.score{
+                postion: absolute;
+                top: 20%;
+                left: 10%;
+                z-index: -1;
+                border: 1px solid yellow;
+                color:yellow;
+                width: 50px;
+                text-align:center;
+            }
         </style>
         <div id="mapa" class="mapa">
+            <div id="score" class="score">0</div>
             <img src='img/naruto.png' id="nave-principal" heigth="80" width="80"> 
         </div>
         `;
@@ -150,17 +163,32 @@ class NarutoInvadersMenu extends HTMLElement{
 
     connectedCallback(){
         this.render();
+        var id;
         //Mensaje en amarillo y rojo para captar la atencion de el usuario
         var mensaje = this.shadowRoot.querySelector('#warning');
         console.log(window.getComputedStyle(mensaje).color);
         var intervalTexto = setInterval(this.cambiaColor,500,mensaje);
         var paradaTexto = setTimeout(this.paraInterval,5000,intervalTexto,mensaje);
         var paradaTexto2 = setTimeout(this.instrucciones,10000,mensaje);
+        //var paradaTexto3 = setTimeout(this.reloj,20000,mensaje, id);
+        //id = requestAnimationFrame(fu,id,mensaje);
         var este = document.getElementsByTagName('naruto-menu');
         console.log(este);
         var borrar = setTimeout(this.borrar,20000,este);
     }
 
+    /*reloj(global){
+        var msg = window.shadowRoot.querySelector('#warning');
+        if(msg.innerHTML === 'PARA DEFENDER LA ALDEA DEBERÁS MOVER LAS FLECHAS DE TU TECLADO PARA MOVERTE POR EL CAMPO DE BATALLA. ADEMÁS PODRÁS DISPARAR KUNAIS INBUIDOS CON EL CHAKRA DEL KYUBY PRESIONANDO LA BARRA ESPACIADORA'){
+            msg.innerHTML = '3';
+        }else if(!(msg.innerHTML === '0')){
+            msg.innerHTML = parseInt(msg.innerHTML) - 1;
+        }
+        else{
+            detenerRequest()
+        }
+        global = requestAnimationFrame(reloj);
+    }*/
     borrar(ele){
         document.body.innerHTML = '';
         var tmp = document.createElement('naruto-game');
@@ -174,7 +202,7 @@ class NarutoInvadersMenu extends HTMLElement{
 
     paraInterval(inter, ele){
         clearInterval(inter);
-        ele.setAttribute('style', 'color:red;font-size:3.5em');
+        ele.setAttribute('style', 'color:black;font-size:3.5em');
         ele.innerHTML = 'LA VILLA OCULTA DE LA HOJA ESTÁ SIENDO ATACADA.\nEL CLAN OUTSUKI HA DECIDO MANDAR HORDAS DE ZETSUS BLANCOS\nES TU DEBER COMO CHOUNIN DE KONOHA AYUDAR EN LA DEFENSA';
     }
 

@@ -9,8 +9,10 @@ class MiSemaforo extends HTMLElement{
     connectedCallback(){
         this.template;
         this.shadowRoot.innerHTML = this.template;
+        
     }
 
+    
     get template(){
         return `
             <style>
@@ -21,9 +23,9 @@ class MiSemaforo extends HTMLElement{
                 .verde{background-color:green}
             </style>
             <div class=contenedor>
-                <div class="caja rojo"></div>
-                <div class="caja"></div>
-                <div class="caja"></div>
+                <div id='rojo'class="caja rojo"></div>
+                <div id='amarillo'class="caja"></div>
+                <div id='verde' class="caja"></div>
             </div>
         `;
     }

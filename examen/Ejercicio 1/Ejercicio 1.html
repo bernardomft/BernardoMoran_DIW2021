@@ -30,8 +30,9 @@
 						if(!start) start = timestamp;
 						var progress = timestamp - start;
 						let pct = (progress*100)/milisegundos;
+						let rot = (progress*360)/milisegundos;
 						pelota.style.left = pct + '%';
-						pelota.style.transform = 'rotate('+pct+'%)';
+						pelota.style.transform = 'rotate('+rot+'deg)';
 						if(progress < milisegundos && pelota.style.left.slice(0,-1) < DESP)
 							window.requestAnimationFrame(step);
 						else{

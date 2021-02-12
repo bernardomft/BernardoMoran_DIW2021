@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1</title>
+	
+	<!-- Estilos en un fichero externo que no tendrás que modificar -->
+	<link rel="stylesheet" type="text/css" href="estilos1.css" />
+	
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", () => {
+			// Constantes con la rotación y desplazamiento que hay que llevar a cabo
+			const DESP = 70;
+			const ROT = 360;
+		
+			//Para obtener el número de milisegundos en los que se ejecuta una animación
+			function getMilisegundos(){
+				return document.querySelector("input[name='segundos']").value*1000;
+			}
+			
+			//Esta función se encarga de desplazar la imagen			
+			function desplazar(){
+				var milisegundos = getMilisegundos();
+				if(!(isNaN(milisegundos)) && milisegundos > 0){
+					var start = null;
+					var pelota = document.querySelector('#pelota1');
+					pelota.style.position = 'absolute';
+					var glob = window.requestAnimationFrame(step);
+					function step(timestamp){
+						if(!start) start = timestamp;
+						var progress = timestamp - start;
+						let pct = (progress*100)/milisegundos;
+						pelota.style.left = pct + '%';
+						pelota.style.transform = 'rotate('+pct+'%)';
+						if(progress < milisegundos && pelota.style.left.slice(0,-1) < DESP)
+							window.requestAnimationFrame(step);
+						else{
+							pelota.style.left = DESP + '%';
+							cancelAnimationFrame(glob);
+						}
+							
+					}
+				}
+				else{
+					alert('Debe introducir un número de segundos mayor que cero');
+				}
+				
+				// Resto del código a implementar
+			}
+										
+			//Por defecto se activa la animación						
+			document.getElementById("pulsador").addEventListener("click", desplazar);
+				
+		});
+	</script>
+</head>
+<body>
+	<img id="pelota1" class="pelota" src="pelota1.png"/>
+	<div id="contenedor">
+		<div id="pulsador" class="activador"><span>A rodar</span></div>
+		<input type="text" name="segundos" size="5" class="activador"></input>
+	</div>	
+
+</body>
+</html>

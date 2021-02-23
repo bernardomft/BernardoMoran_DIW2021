@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .caja{
+            position: relative;
+            max-width: 90%;
+            min-height: 60%;
+            
+        }
+        .titulo{
+            position: absolute;
+            left:0%;
+            animation-name: txtmove;
+            animation-duration: 4s;
+            animation-iteration-count: 1;
+            animation-delay: 2s;
+            animation-timing-function: linear;				
+            animation-fill-mode:backwards;
+            animation-direction: normal;	
+        }
+
+        @keyframes txtmove {
+            from{left:100%; transform: rotate(0deg);}
+            25%{left:75%;}
+            50%{left:50%;}
+            75%{left:25%;}
+            to{left:0%;transform: rotate(360deg);}
+	}
+    </style>
+</head>
+<body>
+    <div class="caja">
+        <h1 class='titulo'>TITULO A MOVER</h1>
+    </div>
+</body>
+</html>

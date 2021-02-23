@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .caja{
+            min-width: 99%;
+            min-height: 100%;
+            
+        }
+
+        .dvd{
+            position: absolute;
+            animation: dvdmove 15s linear 0s infinite normal none;
+        }
+
+        @keyframes dvdmove {
+            from{top:0%; left:75%;}
+            25%{top:25%;left:100%;}
+            50%{top:100%;left:25%;}
+            75%{top:75%;left:0%;}
+            to{top:0%;left:75%;}
+        }
+    </style>
+</head>
+<body>
+    <div class="caja">
+        <img class="dvd" src="dvd.png" alt="ball"width="111" height="111" />
+    </div>
+</body>
+</html>

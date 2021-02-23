@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contenedor{
+            width: 90%;
+            min-height: 90vh;
+            margin: auto auto;
+            border: 1px solid #000000;
+            position: relative;
+            /*display: flex;
+            flex-direction: column;
+            justify-content: space-around;*/
+        }
+
+        .caja{
+            position: absolute;
+            margin-top:20px;
+            left: 0%;
+            width: 80px;
+            height: 80px;
+            border: 1px solid #000000;
+            color:#000000;
+            background-color: red;
+            transition: all 4s;
+        }
+
+        #caja1{
+            top:0px; /*20px margin + ancho caja*/
+        }
+
+        #caja2{
+            top:100px; /*20px margin + ancho caja*/
+        }
+
+        #caja3{
+            top:200px; /*20px margin + ancho caja*/
+        }
+
+        #caja4{
+            top:300px; /*20px margin + ancho caja*/
+        }
+
+        .caja:hover{
+           transform:rotate(270deg);
+           width:40px;
+           height:40px;
+           background-color: blue;
+           color: yellow;
+        }
+
+        
+    </style>
+
+    <script>
+
+        function inicio(){
+            document.getElementById('derecha').addEventListener('click',derecha);
+            document.getElementById('intercalar').addEventListener('click',intercalar);
+        }
+
+        function derecha(){
+            var caja1 = document.getElementById('caja1');
+            var caja2 = document.getElementById('caja2');
+            var caja3 = document.getElementById('caja3');
+            var caja4 = document.getElementById('caja4');
+            caja1.style.left = 'calc(100% - 80px)';
+            caja2.style.left = 'calc(100% - 80px)';
+            caja3.style.left = 'calc(100% - 80px)';
+            caja4.style.left = 'calc(100% - 80px)';
+            console.log('ewrwr');
+        }
+
+        function intercalar(){
+            derecha();
+            var caja1 = document.getElementById('caja1');
+            var caja2 = document.getElementById('caja2');
+            var caja3 = document.getElementById('caja3');
+            var caja4 = document.getElementById('caja4');
+            caja1.style.top = '100px';
+            caja2.style.top = '0px';
+            caja3.style.top = '300px';
+            caja4.style.top = '200px';
+        }
+        window.onload  = inicio;
+    </script>
+</head>
+<body>
+    <div class="contenedor">
+        <div id="caja1"class="caja">Caja 1</div>
+        <div id="caja2"class="caja">Caja 2</div>
+        <div id="caja3"class="caja">Caja 3</div>
+        <div id="caja4"class="caja">Caja 4</div>
+    </div>
+    <button id='derecha'>Desplazar a la derecha</button>
+    <button id='intercalar'>Intercañar a la derecha</button>
+</body>
+</html>

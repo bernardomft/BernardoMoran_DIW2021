@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css" media="screen">
+		:root{
+			--margen: 1rem;
+			--total: 4;
+			--size: 6rem;
+		}
+		
+		#container {
+			border: 1px solid black;
+			width: 50%; /* Luego a la hora de desplazar tendremos en cuenta este porcentaje */
+			height: calc(var(--size) * var(--total) + (var(--total) * var(--margen)) + var(--margen)); /* Se cuadra con el tamaño de las cajas: En este caso 6*4=24rem + 5rem (del margen superior y por cada caja) */
+			position: relative;
+			overflow: hidden;
+			margin-bottom: 1em;
+		}
+		.box {
+			width: var(--size);
+			height: var(--size);
+			background-color: red;
+			font-size: 1.5rem;
+			position: absolute;
+			margin: var(--margen);
+			transition: 4s all 0.5s ease-in-out;
+			left: 0px; /* Para que funcione hay que inicializar left */
+		}
+		div.box:hover {
+			width: calc(var(--size) / 2);
+			height: calc(var(--size) / 2);
+			background-color: blue;
+			color: yellow;
+			font-size: 1rem;			
+			transform: rotate(270deg);				
+		}
+		
+		div#ex01 { /* Se cuadra cada valor de top teniendo en cuenta márgenes y el alto de cada componente */
+			top: calc((var(--size) + var(--margen))*0);	/* Se calcula cada posición sumando tamaño más margen, es decir 0rem, 7rem, 14rem, ex
+															Son intervalos de 7rem (6rem de alto y 1rem de margen, por tanto 7rem * (orden -1):
+															(ancho + margen)*0, (ancho + margen)*1 => 7rem*0, 7rem*1, etc */																
+		}
+		div#ex02 {
+			top: calc((var(--size) + var(--margen))*1);
+		}
+		div#ex03 {
+			top: calc((var(--size) + var(--margen))*2);
+		}
+		div#ex04 {
+			top: calc((var(--size) + var(--margen))*3);
+		}
+	</style>
+	<script type="text/javascript">
+		/* Se puede automatizar con arrays, variables, etc., pero al ser un ejercicio de prueba se opta por incluir directamente los valores */
+		document.addEventListener("DOMContentLoaded", () => {	
+			document.getElementById("desplazar").addEventListener("click", ()=>{
+				// Desplazamos cada una de las cajas
+				document.querySelectorAll(".box").forEach((box)=>{
+					box.style.left = "calc(100% - var(--size) - var(--margen)*2)";  /* Al igual que en las animaciones, no se puede mezclar left con right
+						Por ello calculamos el 100% restando el tamaño y el margen inicial y final */			
+				});
+				
+				// Recuperamos los estilos que se aplican a una caja cualquiera para aplicar posteriormente el desplazamiento
+				let box = window.getComputedStyle(document.querySelector(".box"), null);
+				
+				let offset = parseInt(box.width) + parseInt(box.margin); //Recuperamos el ancho definido junto cada elemento con su margen
+				//La función width nos da el ancho en píxeles, pero con la función css tenemos que transformar empleando parseInt
+					
+				/* Ahora cambiamos el orden de 1 con 2 y 3 con 4. Se transforma a px porque JavaScript transforma internamente de rem a px */
+				document.getElementById("ex01").style.top = offset*1 + "px";
+				document.getElementById("ex02").style.top = offset*0 + "px";
+				document.getElementById("ex03").style.top = offset*3 + "px";
+				document.getElementById("ex04").style.top = offset*2 + "px";
+			});
+			
+			document.getElementById("volver").addEventListener("click", ()=>{
+				// Desplazamos cada una de las cajas
+				document.querySelectorAll(".box").forEach((box)=>{
+					box.style.left = "0rem";  /* Al igual que en las animaciones, no se puede mezclar left con right */		
+				});
+				
+				// Recuperamos los estilos que se aplican a una caja cualquiera para aplicar posteriormente el desplazamiento
+				let box = window.getComputedStyle(document.querySelector(".box"), null);
+				
+				let offset = parseInt(box.width) + parseInt(box.margin); //Recuperamos el ancho definido junto cada elemento con su margen
+				//La función width nos da el ancho en píxeles, pero con la función css tenemos que transformar empleando parseInt
+			
+				// Ahora volvemos al orden normal. Se transforma a px porque JavaScript transforma internamente de rem a px */
+				document.getElementById("ex01").style.top = offset*0 + "px";
+				document.getElementById("ex02").style.top = offset*1 + "px";
+				document.getElementById("ex03").style.top = offset*2 + "px";
+				document.getElementById("ex04").style.top = offset*3 + "px";
+			});		
+		});		
+	</script>
+</head>
+<body>
+	<div id="container">
+		<div id="ex01" class="box">Caja 1</div>
+		<div id="ex02" class="box">Caja 2</div>
+		<div id="ex03" class="box">Caja 3</div>
+		<div id="ex04" class="box">Caja 4</div>
+	</div>
+	
+	<button id="desplazar">Desplazar a la derecha e intercalar</button>
+	<button id="volver">Volver a la posición inicial</button>
+</body>
+</html>

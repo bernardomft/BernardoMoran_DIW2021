@@ -1,0 +1,9 @@
+body {margin:3em 10%; background:#333;}
+	
+.ball{
+	transition: transform 2s;
+}
+		
+.ball:hover {				
+	transform: translateX(450px) rotate(2turn);	
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<style>
+	#container{
+		width: 1000px;
+		height: 600px;
+		border: 1px solid black;
+		display: flex;
+	}
+
+	#dvd {
+		width: 200px;
+		height: 200px;
+		margin: 10px;
+		background-image: url("dvd1.gif");
+		align-self: center;
+		margin: 0px;
+		animation-duration: 6s;
+		animation-iteration-count: infinite;	
+		animation-name: Screenshot;
+	}
+
+	@keyframes Screenshot {
+		25% {
+			align-self: flex-start;
+			margin: 0 auto;
+			background-image: url("dvd2.gif");
+		}
+		
+		50% {
+			align-self: center;
+			margin: auto 0px auto auto;
+			background-image: url("dvd3.gif");
+		}
+		
+		75% {
+			align-self: flex-end;
+			margin: 0 auto;
+			background-image: url("dvd4.gif");		
+		}
+		
+		100% {
+			align-self: center;
+			margin: 0px;
+			background-image: url("dvd1.gif");
+		}
+	}
+
+</style>
+
+</head>
+<body>
+
+<div id="container">
+	<div id="dvd"></div>
+</div>	
+
+</body>
+</html>

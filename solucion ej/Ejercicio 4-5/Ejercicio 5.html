@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<!-- Para que funcione autoplay es necesario en algunos navegadores el atributo allow="autoplay" y el atributo mute -->
+	<!-- Probar en varios navegadores quitando los atributos mute y allow="autoplay" y observa las diferencias -->
+
+	<!-- En este caso funciona autoplay, pero se crea una playlist con el mismo video y podría aparecer dos veces (en muchos navegadores se ha solucionado) -->
+	<iframe width="420" height="345" src="https://www.youtube.com/embed/cqNmVJk7Zyg?playlist=cqNmVJk7Zyg&controls=2&loop=1&autoplay=1&mute=1" allow="autoplay"></iframe>
+
+	<!-- En este caso se crea un playlist con un único video -->
+	<iframe width="420" height="345" src="https://www.youtube.com/embed?listType=playlist&playlist=cqNmVJk7Zyg&controls=2&loop=1&autoplay=1&mute=1" allow="autoplay"></iframe>
+
+	<!-- Si se añade el vídeo a una lista de reproducción real -->
+	<iframe width="420" height="345" src="https://www.youtube.com/embed?listType=playlist&list=PL1U4FxY4XckDOVq5ds4VBCnr6vrjKYTR-&controls=2&loop=1&autoplay=1&mute=1" allow="autoplay"></iframe>
+</body>
+</html>

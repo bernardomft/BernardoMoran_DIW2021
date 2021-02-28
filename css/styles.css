@@ -189,7 +189,7 @@ footer.footer{
 div.footer-nav{
     margin-top: 1.2em;
 }
-footer.footer h5, footer.footer ul {
+footer.footer h2, footer.footer ul {
     font-size: 0.8125em;
     margin: 0.9em auto;
 }
@@ -292,7 +292,7 @@ div.info-empresa div.img-rrss{
         color: #FFFFFF;
     }
 
-    aside.aside h5.h5{
+    aside.aside h2.h2{
         margin-top: 0.5em;
     }
     aside.aside ul{
@@ -458,6 +458,7 @@ div.info-empresa div.img-rrss{
         display: block;
     }
     /*ANIMACIÓN DE EL HEADER*/
+    /*HEADER MODIFICADO*/
     header.header h1.h1{
         padding: 0.5em;
         width: 20%;

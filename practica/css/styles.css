@@ -461,11 +461,11 @@ div.info-empresa div.img-rrss{
     header.header h1.h1{
         padding: 0.5em;
         width: 20%;
-        transition: margin-left 4s, transform 4s, color 2s;
+        transition: margin-left 4s, transform 1s, color 2s;
     }
     h1.h1:hover{
         margin-left: 75%;
-        transform: rotate(360deg);
+        transform: rotate(180deg);
         color:orangered;
     }
 

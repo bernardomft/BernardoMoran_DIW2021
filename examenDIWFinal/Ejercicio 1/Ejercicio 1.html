@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="es-ES">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Examen parcial 2ª Evaluación</title>
+	<link rel="stylesheet" href="estilos1.css" />
+
+</head>
+<body>	
+	<!-- Contenedor principal -->			
+	<main id="wrapper">	
+		<!-- Subcabecera para incluir la imagen -->
+		<nav id="cabecera">
+			<!-- Aquí va la etiqueta picture -->
+			<picture>
+				<source
+						media="(min-width:1200px)"
+						sizes="70vw,70vw"
+						srcset="img/img_1200.jpg 1200w, 
+								img/img_1600.jpg 1600w"
+						type="img/jpeg"/>
+				<source
+						media="(min-width:600px)"
+						sizes="(min-width:1000px) 80vw, 90vw"
+						srcset="img/img_800.png 800w 2x"
+						type="img/png"/>
+				<source
+						media="(min-width:600px)"
+						sizes="(min-width:1000px) 80vw, 90vw"
+						srcset="img/img_800.jpg 800w"
+						type="img/jpeg"/>
+				<source
+					srcset="img/img_400.jpg"
+					type="img/jpeg"/>
+				
+				<img src="img/img_800.png" 
+					srcset="img/img_400.jpg"
+					alt="Para navegadores antiguos"/>
+			</picture>
+			
+		</nav>			
+			
+		<!-- Sección para contenidos audiovisuales -->
+		<section id="multimedia">	
+			<!-- Elemento donde se incluyen el audio -->
+			<article id="audio" class="caja">
+				<!-- Aquí va la etiqueta audio -->	
+				<!--En chrome se ejecuta el autoplay siempre, pero en Firefox si-->
+				<audio autoplay="autoplay" loop="loop", controls="controls" preload="meta" muted>
+					<source src="audio/fondo.ogg" type="audio/ogg">
+					<source src="audio/fondo.mp3" type="audio/mp3">
+				</audio>	
+			</article>
+			
+			<!-- Elemento donde se incluye el vídeo de YouTube -->
+			<article id="video1" class="caja">
+				<iframe width="420" height="300" autoplay src="https://www.youtube.com/embed/zu9W8AtZy7U?controls=2&loop=1&autoplay=1&mute=1" allow="autoplay"></iframe> <!-- Aquí debes modificar los parámetros del vídeo de YouTube -->
+			</article>
+		</section>
+		
+	</main>	
+
+</body>
+</html>

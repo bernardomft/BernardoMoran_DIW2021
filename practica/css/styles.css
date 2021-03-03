@@ -452,6 +452,9 @@ div.info-empresa div.img-rrss{
 
 @media all and (min-width:1200px){
 
+    :focus{
+        outline: 2px solid #eeeeee;
+    }
     
     header.header{
         height: 4em;
